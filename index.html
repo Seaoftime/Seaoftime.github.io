@@ -321,44 +321,18 @@
       
         
           
-            <p>前前后后折腾了好久，前几次尝试都以失败告终。主要还是环境配置出了问题，npm 命令用不了，最后在网上找到这篇文章：<a href="http://blog.csdn.net/xianyiqi/article/details/51297499" target="_blank" rel="external">http://blog.csdn.net/xianyiqi/article/details/51297499</a>  在里面直接下载的node，自带了 npm ，最终环境配置终于弄好了，当然除了 node ，还需要配置 hexo , git , 这个网上有很多，我就不说了。</p>
-<p>下面说一下我自己创建的过程<br>步骤如下：首先在桌面（或者其他地方）新建一个文件夹（这里以 myboke 为例）：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd myboke</div></pre></td></tr></table></figure>
-<p><strong>安装 Hexo:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">npm install hexo --no-optional</div><div class="line"></div><div class="line">输入管理员密码（Mac登录密码）</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">注意：Hexo官网上的安装命令是$ npm install -g hexo-cli，安装时如果出错，得在前面加上sudo，网上说是因为权限问题。。。。（sudo npm install -g hexo）</div><div class="line"></div><div class="line">&lt;!-- more --&gt;</div></pre></td></tr></table></figure>
-<p>等待下载，如果你看到以下提示：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">added 433 packages in 37.11s</div><div class="line">INFO  Start blogging with Hexo!</div></pre></td></tr></table></figure></p>
-<p>恭喜你，安装成功！</p>
-<p><strong>配置你hexo:</strong><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd myboke</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo init</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure>
-<p>在浏览器中打开网址<a href="http://localhost:4000，如果能看到如下页面：" target="_blank" rel="external">http://localhost:4000，如果能看到如下页面：</a></p>
-<p><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%883.26.34.png" alt="本地"></p>
-<p>说明你已经成功一大半了。</p>
-<p>现在本地hexo 已经基本弄好了，现在要关联 github ,创建仓库，登录你的Github帐号，新建仓库，名称格式为： 用户名.github.io 固定写法，如myname.github.io</p>
-<p>然后打开本地博客文件夹：<br>里面内容大致是这样：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">_config.yml    </div><div class="line">db.json </div><div class="line">node_modules </div><div class="line">package.json</div><div class="line">scaffolds</div><div class="line">source</div><div class="line">themes</div></pre></td></tr></table></figure></p>
-<p>打开 _config.yml 文件，拉到最后，修改下面的内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">type: git</div><div class="line">repository: https://github.com/你的用户名/你的用户名.github.io.git</div><div class="line">branch: master</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">注意坑：在配置所有的_config.yml文件时（包括theme中的），在所有的冒号:后边都要加一个空格，否则执行hexo命令会报错，切记。。。</div></pre></td></tr></table></figure>
-<p>接下来的3条命令，以后每次都会用到：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g （生成静态文件）</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d （重新部署）</div></pre></td></tr></table></figure>
-<p>若你未关联Github，则执行hexo d 命令时终端会提示你输入Github的用户名和密码。</p>
-<p>hexo d  命令执行成功后，浏览器中打开网址 <a href="http://你的用户名.github.io" target="_blank" rel="external">http://你的用户名.github.io</a> , 能看到和打开<a href="http://localhost:4000时一样的页面。则表示已经配置好远端博客。。。" target="_blank" rel="external">http://localhost:4000时一样的页面。则表示已经配置好远端博客。。。</a></p>
-<p><strong>安装theme：</strong><br>以 next 为例：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">cd myboke</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git clone https://github.com/iissnan/hexo-theme-next themes/next</div></pre></td></tr></table></figure>
-<p>然后将 myboke 目录下_config.yml里theme的名称landscape修改为next 。</p>
-<p>然后重新输入上面的3条命令：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo clean</div></pre></td></tr></table></figure></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo g （生成静态文件）</div></pre></td></tr></table></figure>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo d （重新部署）</div></pre></td></tr></table></figure>
-<p>本地运行：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">hexo server</div></pre></td></tr></table></figure></p>
-<p>看看样式是不是发生了变化。</p>
-<p><strong>绑定个人域名</strong><br>由于是个人网站，我买的是 .me 。比较了腾讯和阿里，选择了阿里的万网，因为便宜一点。😊</p>
-<p>注册一个域名：然后点击解析 如下：<br><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%883.50.42.png" alt="点击解析"></p>
-<p>添加解析，配置如下：<br><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%883.50.57.png" alt="添加解析"></p>
-<p>然后地址栏输入：goodrui.me 就可以访问了。。。</p>
-
-          
+          前前后后折腾了好久，前几次尝试都以失败告终。主要还是环境配置出了问题，npm 命令用不了，最后在网上找到这篇文章：http://blog.csdn.net/xianyiqi/article/details/51297499  在里面直接下载的node，自带了 npm ，最终环境配置终于弄好了，当然除了 node ，还需要配置 hexo , git , 这个网上有很多，我就不说了。
+下面说一下我自己创建的过程步骤如下：首先在桌面（或者其他地方）新建一个文件夹（这里以 myboke 为例）：
+1cd myboke
+安装 Hexo:123npm install hexo --no-optional输
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/24/Hexo-创建个人空间博客/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
@@ -468,17 +442,19 @@
       
         
           
-            <p>Welcome to <a href="https://hexo.io/" target="_blank" rel="external">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/" target="_blank" rel="external">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html" target="_blank" rel="external">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues" target="_blank" rel="external">GitHub</a>.</p>
-<h2 id="Quick-Start"><a href="#Quick-Start" class="headerlink" title="Quick Start"></a>Quick Start</h2><h3 id="Create-a-new-post"><a href="#Create-a-new-post" class="headerlink" title="Create a new post"></a>Create a new post</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo new <span class="string">"My New Post"</span></div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/writing.html" target="_blank" rel="external">Writing</a></p>
-<h3 id="Run-server"><a href="#Run-server" class="headerlink" title="Run server"></a>Run server</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo server</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/server.html" target="_blank" rel="external">Server</a></p>
-<h3 id="Generate-static-files"><a href="#Generate-static-files" class="headerlink" title="Generate static files"></a>Generate static files</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo generate</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/generating.html" target="_blank" rel="external">Generating</a></p>
-<h3 id="Deploy-to-remote-sites"><a href="#Deploy-to-remote-sites" class="headerlink" title="Deploy to remote sites"></a>Deploy to remote sites</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ hexo deploy</div></pre></td></tr></table></figure>
-<p>More info: <a href="https://hexo.io/docs/deployment.html" target="_blank" rel="external">Deployment</a></p>
-
-          
+          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
+Quick StartCreate a new post1$ hexo new "My New Post"
+More info: Writing
+Run server1$ hexo server
+More in
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/06/23/hello-world/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
         
       
     </div>
