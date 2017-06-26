@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="UIDynamic," />
 
 
 
@@ -93,12 +93,17 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rui’s 个人小屋">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="UIDynamic 简介：UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。（官方文档：https://developer.app">
+<meta name="keywords" content="UIDynamic">
+<meta property="og:type" content="article">
+<meta property="og:title" content="UIDynamic 物理仿真（概念研究）">
+<meta property="og:url" content="http://yoursite.com/2017/06/26/UIDynamic-物理仿真研究/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
+<meta property="og:description" content="UIDynamic 简介：UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。（官方文档：https://developer.app">
+<meta property="og:updated_time" content="2017-06-26T09:59:31.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rui’s 个人小屋">
+<meta name="twitter:title" content="UIDynamic 物理仿真（概念研究）">
+<meta name="twitter:description" content="UIDynamic 简介：UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。（官方文档：https://developer.app">
 
 
 
@@ -126,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/26/UIDynamic-物理仿真研究/"/>
 
 
 
 
 
-  <title>Rui’s 个人小屋</title>
+  <title>UIDynamic 物理仿真（概念研究） | Rui’s 个人小屋</title>
   
 
 
@@ -157,9 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left 
-   page-home 
- ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -242,9 +245,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
 
@@ -270,9 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/26/UIDynamic-物理仿真研究/" itemprop="url">UIDynamic 物理仿真（概念研究）</a></h1>
+          <h1 class="post-title" itemprop="name headline">UIDynamic 物理仿真（概念研究）</h1>
         
 
         <div class="post-meta">
@@ -319,296 +320,97 @@
       
 
       
+        <p><strong>UIDynamic 简介：</strong><br>UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。<br>（官方文档：<a href="https://developer.apple.com/search/?q=UIDynamic" target="_blank" rel="external">https://developer.apple.com/search/?q=UIDynamic</a> ）</p>
+<p><strong>三个重要概念：</strong></p>
+<ol>
+<li>Dynamic Animator Item:</li>
+</ol>
+<p><strong>物理仿真元素</strong>，是任何遵守了UIDynamic协议的对象。从iOS7开始，UIView 默认已经遵守了 UIDynamicItem 协议，因此任何 UI 控件都能做物理仿真。如果自定义对象实现了该协议，即可通过Dynamic Animator实现物理仿真。</p>
+<ol>
+<li>UIDynamicBehavior:</li>
+</ol>
+<p><strong>物理仿真行为</strong>，是动力学行为的父类。基本的动力学行为类UIGravityBehavior、UICollisionBehavior、UIAttachmentBehavior、UISnapBehavior、UIPushbehavior以及UIDynamicItemBehavior均继承自该父类。</p>
+<p>执行怎样的物理仿真效果？怎样的动画效果？</p>
+<p>UIDynamic提供了以下几种物理仿真行为：</p>
+<p>UIGravityBehavior：重力行为<br>UICollisionBehavior：碰撞行为<br>UISnapBehavior：捕捉行为<br>UIPushBehavior：推动行为<br>UIAttachmentBehavior：附着行为<br>UIDynamicItemBehavior：动力元素行为</p>
+<ol>
+<li>Dynamic Animator：</li>
+</ol>
+<p><strong>物理仿真器</strong>，让物理仿真元素执行具体的物理仿真行为，UIDynamicAnimator 类型的对象。为动力学元素提供物理学相关的能力及动画，同时为这些元素提供相关的上下文，是动力学元素与底层iOS物理引擎之间的中介，将Behavior对象添加到Animator即可实现动力仿真。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (instancetype)initWithReferenceView:(UIView *)view;</div><div class="line">view参数：是一个参照视图，表示物理仿真的范围。</div></pre></td></tr></table></figure>
+<p>UIDynamicAnimator 的常见方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//添加1个物理仿真行为</div><div class="line">- (void)addBehavior:(UIDynamicBehavior *)behavior;  　</div><div class="line">　</div><div class="line">//移除1个物理仿真行为</div><div class="line">- (void)removeBehavior:(UIDynamicBehavior *)behavior;　</div><div class="line"></div><div class="line">//移除之前添加过的所有物理仿真行为　</div><div class="line">- (void)removeAllBehaviors;</div></pre></td></tr></table></figure>
+<p>UIDynamicAnimator的常见属性：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//参照视图 </div><div class="line">@property (nonatomic, readonly) UIView* referenceView;</div><div class="line"></div><div class="line">//添加到物理仿真器中的所有物理仿真行为</div><div class="line">@property (nonatomic, readonly, copy) NSArray* behaviors;</div><div class="line"></div><div class="line">//是否正在进行的物理仿真</div><div class="line">@property (nonatomic, readonly, getter = isRunning) BOOL running;</div><div class="line"></div><div class="line">//代理对象（能监听物理仿真器的仿真过程，比如开始和结束）</div><div class="line">@property (nonatomic, assign) id &lt;UIDynamicAnimatorDelegate&gt; delegate;）</div></pre></td></tr></table></figure>
+<hr>
+<p>待补充。。。</p>
+
+      
+    </div>
+
+    <div>
+      
         
-          
-          UIDynamic 简介：UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。（官方文档：https://developer.apple.com/search/?q=UIDynamic ）
-三个重要概念：
 
-Dynamic Animator Item:
+      
+    </div>
 
-物理仿真元素，是任何遵守了UIDynamic协议的对象。从iOS7开始，UI
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/26/UIDynamic-物理仿真研究/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
-      
-    </div>
-
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/24/Hexo-创建个人空间博客/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rui’s 个人小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/24/Hexo-创建个人空间博客/" itemprop="url">Hexo 创建个人空间博客</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-24T14:43:59+08:00">
-                2017-06-24
-              </time>
-            
-
-            
-
-            
-          </span>
-
+        <div class="post-tags">
           
-
+            <a href="/tags/UIDynamic/" rel="tag"># UIDynamic</a>
           
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
         </div>
-      </header>
-    
+      
 
-    <div class="post-body" itemprop="articleBody">
-
+      
       
       
 
       
-        
-          <p>前前后后折腾了好久，前几次尝试都以失败告终。主要还是环境配置出了问题，npm 命令用不了，最后在网上找到这篇文章：<a href="http://blog.csdn.net/xianyiqi/article/details/51297499" target="_blank" rel="external">http://blog.csdn.net/xianyiqi/article/details/51297499</a>  在里面直接下载的node，自带了 npm ，最终环境配置终于弄好了，当然除了 node ，还需要配置 hexo , git , 这个网上有很多，我就不说了。</p>
-<p>下面说一下我自己创建的过程<br>步骤如下：首先在桌面（或者其他地方）新建一个文件夹（这里以 myboke 为例）：</p>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/24/Hexo-创建个人空间博客/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/24/Hexo-创建个人空间博客/" rel="next" title="Hexo 创建个人空间博客">
+                <i class="fa fa-chevron-left"></i> Hexo 创建个人空间博客
+              </a>
+            
           </div>
-          <!--/noindex-->
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
+          <span class="post-nav-divider"></span>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/23/hello-world/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rui’s 个人小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/06/23/hello-world/" itemprop="url">Hello World</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
+          <div class="post-nav-prev post-nav-item">
             
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-23T17:48:17+08:00">
-                2017-06-23
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
+          </div>
         </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          
-          Welcome to Hexo! This is your very first post. Check documentation for more info. If you get any problems when using Hexo, you can find the answer in troubleshooting or you can ask me on GitHub.
-Quick StartCreate a new post1$ hexo new "My New Post"
-More info: Writing
-Run server1$ hexo server
-More in
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/06/23/hello-world/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-  </section>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -616,6 +418,10 @@ More in
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -829,10 +635,10 @@ More in
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
