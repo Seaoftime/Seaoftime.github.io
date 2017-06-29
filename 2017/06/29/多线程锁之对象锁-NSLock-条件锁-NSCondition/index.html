@@ -1,0 +1,719 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="NSLock," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="NSLock 对象锁NSLock是我们经常所使用的，除lock和unlock方法外，NSLock还提供了tryLock,lockBeforeDate:两个方法tryLock:会尝试加锁，如果锁不可用(已经被锁住)，刚并不会阻塞线程，并返回NO。lockBeforeDate:方法会在所指定Date之前尝试加锁，如果在指定时间之前都不能加锁，则返回NO。 卖票 demo： 12345678910sel">
+<meta name="keywords" content="NSLock">
+<meta property="og:type" content="article">
+<meta property="og:title" content="多线程锁之对象锁(NSLock) 条件锁(NSCondition)">
+<meta property="og:url" content="http://yoursite.com/2017/06/29/多线程锁之对象锁-NSLock-条件锁-NSCondition/index.html">
+<meta property="og:site_name" content="Rui’s 个人小屋">
+<meta property="og:description" content="NSLock 对象锁NSLock是我们经常所使用的，除lock和unlock方法外，NSLock还提供了tryLock,lockBeforeDate:两个方法tryLock:会尝试加锁，如果锁不可用(已经被锁住)，刚并不会阻塞线程，并返回NO。lockBeforeDate:方法会在所指定Date之前尝试加锁，如果在指定时间之前都不能加锁，则返回NO。 卖票 demo： 12345678910sel">
+<meta property="og:updated_time" content="2017-06-29T08:15:55.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="多线程锁之对象锁(NSLock) 条件锁(NSCondition)">
+<meta name="twitter:description" content="NSLock 对象锁NSLock是我们经常所使用的，除lock和unlock方法外，NSLock还提供了tryLock,lockBeforeDate:两个方法tryLock:会尝试加锁，如果锁不可用(已经被锁住)，刚并不会阻塞线程，并返回NO。lockBeforeDate:方法会在所指定Date之前尝试加锁，如果在指定时间之前都不能加锁，则返回NO。 卖票 demo： 12345678910sel">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/29/多线程锁之对象锁-NSLock-条件锁-NSCondition/"/>
+
+
+
+
+
+  <title>多线程锁之对象锁(NSLock) 条件锁(NSCondition) | Rui’s 个人小屋</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rui’s 个人小屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">知识栖息地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/29/多线程锁之对象锁-NSLock-条件锁-NSCondition/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rui’s 个人小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">多线程锁之对象锁(NSLock) 条件锁(NSCondition)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-29T15:56:56+08:00">
+                2017-06-29
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">in</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/多线程/" itemprop="url" rel="index">
+                    <span itemprop="name">多线程</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><strong>NSLock 对象锁</strong><br>NSLock是我们经常所使用的，除lock和unlock方法外，NSLock还提供了tryLock,lockBeforeDate:两个方法<br>tryLock:会尝试加锁，如果锁不可用(已经被锁住)，刚并不会阻塞线程，并返回NO。<br>lockBeforeDate:方法会在所指定Date之前尝试加锁，如果在指定时间之前都不能加锁，则返回NO。</p>
+<p><strong>卖票 demo：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">self.leftTicketsCount = 100;//总票数</div><div class="line"></div><div class="line">//10 个线程</div><div class="line">for (int i=0; i&lt;10; i++) &#123;</div><div class="line">NSThread *thread=[[NSThread alloc]initWithTarget:self selector:@selector(sellTickets) object:nil];</div><div class="line">char chStr = i + &apos;A&apos;;</div><div class="line">thread.name=[NSString stringWithFormat:@&quot;售票员%c&quot;,chStr];</div><div class="line">//线程开始</div><div class="line">[thread start];</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div></pre></td><td class="code"><pre><div class="line">- (void)sellTickets &#123;</div><div class="line">while (1) &#123;</div><div class="line"></div><div class="line">[_lock lock];</div><div class="line"></div><div class="line">int count=self.leftTicketsCount;</div><div class="line">if (count&gt;0) &#123;</div><div class="line">//休眠一段时间</div><div class="line">sleep(1);</div><div class="line">//2.票数-1</div><div class="line">self.leftTicketsCount= count-1;</div><div class="line">//获取当前线程</div><div class="line">NSThread *current=[NSThread currentThread];</div><div class="line"></div><div class="line">NSLog(@&quot;%@--卖了一张票，还剩余%d张票&quot;,current.name,self.leftTicketsCount);</div><div class="line">&#125;else&#123;</div><div class="line">//退出线程</div><div class="line">[NSThread exit];</div><div class="line">&#125;</div><div class="line"></div><div class="line">[_lock unlock];</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">**NSCondition 条件锁：**</div><div class="line"></div><div class="line">一种最基本的条件锁。手动控制线程wait和signal。当我们在使用多线程的时候，普通的锁只是直接的锁与不锁，而我们在处理资源</div><div class="line">共享的时候很多情况下下需要满足一定条件的情况下才能打开这把锁</div><div class="line"></div><div class="line">[condition lock];多用于多线程同时访问、修改同一个数据源，保证在同一时间内数据源只被访问、修改一次，其他线程</div><div class="line">要在lock外等待，只到unlock才可访问。</div><div class="line"></div><div class="line">[condition unlock];与lock 同时使用。</div><div class="line"></div><div class="line">[condition wait];让当前线程处于等待状态。</div><div class="line"></div><div class="line">[condition signal];CPU发信号告诉线程不用在等待，可以继续执行。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">``` </div><div class="line"></div><div class="line">tickets = 100;//总票数</div><div class="line">count = 0;//卖出票数</div><div class="line"></div><div class="line">//锁对象</div><div class="line">_theLock = [[NSLock alloc] init];</div><div class="line">ticketsCondition = [[NSCondition alloc] init];</div><div class="line"></div><div class="line">ticketsThreadOne = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];</div><div class="line">[ticketsThreadOne setName:@&quot;Thread-1&quot;];</div><div class="line">[ticketsThreadOne start];</div><div class="line"></div><div class="line"></div><div class="line">ticketsThreadTwo = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];</div><div class="line">[ticketsThreadTwo setName:@&quot;Thread-2&quot;];</div><div class="line">[ticketsThreadTwo start];</div><div class="line"></div><div class="line">ticketsThreadThree = [[NSThread alloc] initWithTarget:self selector:@selector(run) object:nil];</div><div class="line">[ticketsThreadThree setName:@&quot;Thread-3&quot;];</div><div class="line">[ticketsThreadThree start];</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">NSThread *ticketsThreadfour = [[NSThread alloc] initWithTarget:self selector:@selector(run22) object:nil];</div><div class="line">[ticketsThreadfour setName:@&quot;Thread-4&quot;];</div><div class="line">[ticketsThreadfour start];</div><div class="line">//必须得有[ticketsCondition signal] 才会执行</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">- (void)run22&#123;</div><div class="line">/**</div><div class="line">* 线程的顺序执行他们都可以通过[ticketsCondition signal]; 发送信号的方式，在一个线程唤醒另外一个线程的等待。</div><div class="line">*/</div><div class="line">while (1)</div><div class="line">&#123;</div><div class="line">[ticketsCondition lock];</div><div class="line">[NSThread sleepForTimeInterval:0.1];</div><div class="line">[ticketsCondition signal];</div><div class="line">[ticketsCondition unlock];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line">- (void)run &#123;</div><div class="line">while (1)</div><div class="line">&#123;</div><div class="line">/**</div><div class="line">*  上锁:如果没有线程同步的lock，卖票数可能是-1.加上lock之后线程同步保证了数据的正确性。</div><div class="line">*/</div><div class="line">[_theLock lock];</div><div class="line">[ticketsCondition lock];</div><div class="line">[ticketsCondition wait];</div><div class="line">if (tickets&gt;=0)</div><div class="line">&#123;</div><div class="line">[NSThread sleepForTimeInterval:0.1];</div><div class="line">count = 100 - tickets;</div><div class="line">NSLog(@&quot;当前票数是:%d,售出:%d,线程名:%@&quot;,tickets,count,[[NSThread currentThread] name]);</div><div class="line">tickets--;</div><div class="line">&#125;</div><div class="line">else</div><div class="line">&#123;</div><div class="line">break;</div><div class="line">&#125;</div><div class="line">[_theLock unlock];</div><div class="line">[ticketsCondition unlock];</div><div class="line">&#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/NSLock/" rel="tag"># NSLock</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/06/29/为一个实例动态替换方法-demo/" rel="next" title="为一个实例动态替换方法(demo)">
+                <i class="fa fa-chevron-left"></i> 为一个实例动态替换方法(demo)
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png"
+               alt="Rui" />
+          <p class="site-author-name" itemprop="name">Rui</p>
+           
+              <p class="site-description motion-element" itemprop="description">没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，偶尔文艺，资深伪文青。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">7</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">5</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Seaoftime?tab=repositories" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/49f6751de79a" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rui</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
