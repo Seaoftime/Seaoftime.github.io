@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="UIDynamic," />
+  <meta name="keywords" content="runloop," />
 
 
 
@@ -93,17 +93,19 @@
 
 
 
-<meta name="description" content="UIDynamic 简介：UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。（官方文档：https://developer.app">
-<meta name="keywords" content="UIDynamic">
+<meta name="description" content="runloop 概念： 事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说r">
+<meta name="keywords" content="runloop">
 <meta property="og:type" content="article">
-<meta property="og:title" content="UIDynamic 物理仿真（概念研究）">
-<meta property="og:url" content="http://yoursite.com/2017/06/26/UIDynamic-物理仿真研究/index.html">
+<meta property="og:title" content="Runloop 相关">
+<meta property="og:url" content="http://yoursite.com/2017/06/30/Runloop-原理篇/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="UIDynamic 简介：UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。（官方文档：https://developer.app">
-<meta property="og:updated_time" content="2017-06-26T10:14:45.000Z">
+<meta property="og:description" content="runloop 概念： 事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说r">
+<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-30%20%E4%B8%8B%E5%8D%884.12.04.png">
+<meta property="og:updated_time" content="2017-06-30T08:15:08.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="UIDynamic 物理仿真（概念研究）">
-<meta name="twitter:description" content="UIDynamic 简介：UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。（官方文档：https://developer.app">
+<meta name="twitter:title" content="Runloop 相关">
+<meta name="twitter:description" content="runloop 概念： 事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说r">
+<meta name="twitter:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-30%20%E4%B8%8B%E5%8D%884.12.04.png">
 
 
 
@@ -131,13 +133,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/26/UIDynamic-物理仿真研究/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/06/30/Runloop-原理篇/"/>
 
 
 
 
 
-  <title>UIDynamic 物理仿真（概念研究） | Rui’s 个人小屋</title>
+  <title>Runloop 相关 | Rui’s 个人小屋</title>
   
 
 
@@ -256,7 +258,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/26/UIDynamic-物理仿真研究/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/Runloop-原理篇/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rui">
@@ -273,7 +275,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">UIDynamic 物理仿真（概念研究）</h1>
+          <h1 class="post-title" itemprop="name headline">Runloop 相关</h1>
         
 
         <div class="post-meta">
@@ -285,8 +287,8 @@
               
                 <span class="post-meta-item-text">Posté le</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-26T17:26:49+08:00">
-                2017-06-26
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T15:58:09+08:00">
+                2017-06-30
               </time>
             
 
@@ -308,8 +310,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UIKit/" itemprop="url" rel="index">
-                    <span itemprop="name">UIKit</span>
+                  <a href="/categories/runloop/" itemprop="url" rel="index">
+                    <span itemprop="name">runloop</span>
                   </a>
                 </span>
 
@@ -342,30 +344,37 @@
       
 
       
-        <p><strong>UIDynamic 简介：</strong><br>UIDynamic 是从 iOS7开始引入的一种新技术，隶属于UIKit框架，可以认为是一种物理引擎，能模拟和仿真现实生活中的物理现象，比如：重力、弹性碰撞等现象。UIKit动力学的引入，并不是为了替代CA或者UIView动画，而是在需要引入逼真的交互设计的时候，才需要使用UIKit动力学，作为现有交互设计的一种补充。<br>（官方文档：<a href="https://developer.apple.com/search/?q=UIDynamic" target="_blank" rel="external">https://developer.apple.com/search/?q=UIDynamic</a> ）</p>
-<p><strong>三个重要概念：</strong></p>
+        <p><strong>runloop 概念：</strong></p>
+<p>事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说runLoop应该是一个设计模式，在其他平台同样存在这种模式。<br><em>注：RunLoop实际上是一个对象，这个对象在循环中用来处理程序运行过程中出现的各种事件（比如说触摸事件、UI刷新事件、定时器事件、Selector事件），从而保持程序的持续运行；而且在没有事件处理的时候，会进入睡眠模式，从而节省CPU资源，提高程序性能。</em></p>
+<p><strong>runloop 实现：</strong><br>我们使用的是Foundation框架的NSRunLoop类去做一些实现，而其实NSRunLoop是基于CoreFoundation框架中的CFRunLoop进行的一层简单的封装。所以我们这里着重介绍CFRunLoop。</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">struct __CFRunLoop &#123;</div><div class="line">CFRuntimeBase _base;</div><div class="line">pthread_mutex_t _lock; /* locked for accessing mode list */</div><div class="line">__CFPort _wakeUpPort;  // used for CFRunLoopWakeUp </div><div class="line">Boolean _unused;</div><div class="line">volatile _per_run_data *_perRunData;   // reset for runs of the run loop</div><div class="line">pthread_t _pthread;</div><div class="line">uint32_t _winthread;</div><div class="line">CFMutableSetRef _commonModes;</div><div class="line">CFMutableSetRef _commonModeItems;</div><div class="line">CFRunLoopModeRef _currentMode;</div><div class="line">CFMutableSetRef _modes;</div><div class="line">struct _block_item *_blocks_head;</div><div class="line">struct _block_item *_blocks_tail;</div><div class="line">CFTypeRef _counterpart;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
+<p>我们大概可以CFRunLoop是这么一个结构体。<br>我们可以看到结构体重有用来保证线程安全的锁_lock，有用来唤醒runLoop的端口_wakeUpPort，有线程对象_pthread，还有一个模式集合_modes以及一些其他辅助的属性。</p>
+<p><strong>runloop和线程：</strong></p>
 <ol>
-<li>Dynamic Animator Item:</li>
+<li>一条线程对应一个RunLoop对象，每条线程都有唯一一个与之对应的RunLoop对象。</li>
+<li>我们只能在当前线程中操作当前线程的RunLoop，而不能去操作其他线程的RunLoop。</li>
+<li>RunLoop对象在第一次获取RunLoop时创建，销毁则是在线程结束的时候。</li>
+<li>主线程的RunLoop对象系统自动帮助我们创建好了，而子线程的RunLoop对象需要我们主动创建。</li>
 </ol>
-<p><strong>物理仿真元素</strong>，是任何遵守了UIDynamic协议的对象。从iOS7开始，UIView 默认已经遵守了 UIDynamicItem 协议，因此任何 UI 控件都能做物理仿真。如果自定义对象实现了该协议，即可通过Dynamic Animator实现物理仿真。</p>
-<ol>
-<li>UIDynamicBehavior:</li>
-</ol>
-<p><strong>物理仿真行为</strong>，是动力学行为的父类。基本的动力学行为类UIGravityBehavior、UICollisionBehavior、UIAttachmentBehavior、UISnapBehavior、UIPushbehavior以及UIDynamicItemBehavior均继承自该父类。</p>
-<p>执行怎样的物理仿真效果？怎样的动画效果？</p>
-<p>UIDynamic提供了以下几种物理仿真行为：</p>
-<p>UIGravityBehavior：重力行为<br>UICollisionBehavior：碰撞行为<br>UISnapBehavior：捕捉行为<br>UIPushBehavior：推动行为<br>UIAttachmentBehavior：附着行为<br>UIDynamicItemBehavior：动力元素行为</p>
-<ol>
-<li>Dynamic Animator：</li>
-</ol>
-<p><strong>物理仿真器</strong>，让物理仿真元素执行具体的物理仿真行为，UIDynamicAnimator 类型的对象。为动力学元素提供物理学相关的能力及动画，同时为这些元素提供相关的上下文，是动力学元素与底层iOS物理引擎之间的中介，将Behavior对象添加到Animator即可实现动力仿真。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">- (instancetype)initWithReferenceView:(UIView *)view;</div><div class="line">view参数：是一个参照视图，表示物理仿真的范围。</div></pre></td></tr></table></figure>
-<p>UIDynamicAnimator 的常见方法：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">//添加1个物理仿真行为</div><div class="line">- (void)addBehavior:(UIDynamicBehavior *)behavior;  　</div><div class="line">　</div><div class="line">//移除1个物理仿真行为</div><div class="line">- (void)removeBehavior:(UIDynamicBehavior *)behavior;　</div><div class="line"></div><div class="line">//移除之前添加过的所有物理仿真行为　</div><div class="line">- (void)removeAllBehaviors;</div></pre></td></tr></table></figure>
-<p>UIDynamicAnimator的常见属性：</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">//参照视图 </div><div class="line">@property (nonatomic, readonly) UIView* referenceView;</div><div class="line"></div><div class="line">//添加到物理仿真器中的所有物理仿真行为</div><div class="line">@property (nonatomic, readonly, copy) NSArray* behaviors;</div><div class="line"></div><div class="line">//是否正在进行的物理仿真</div><div class="line">@property (nonatomic, readonly, getter = isRunning) BOOL running;</div><div class="line"></div><div class="line">//代理对象（能监听物理仿真器的仿真过程，比如开始和结束）</div><div class="line">@property (nonatomic, assign) id &lt;UIDynamicAnimatorDelegate&gt; delegate;）</div></pre></td></tr></table></figure>
-<hr>
-<p>待补充。。。</p>
+<p><strong>默认情况下主线程的RunLoop原理:</strong></p>
+<p>我们在启动一个iOS程序的时候，系统会调用创建项目时自动生成的main.m的文件。</p>
+<pre><code>int main(int argc, char * argv[]) {
+@autoreleasepool {
+return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
+}
+}
+</code></pre><p>其中UIApplicationMain函数内部帮我们开启了主线程的RunLoop，UIApplicationMain内部拥有一个无线循环的代码。上边的代码中开启RunLoop的过程可以简单的理解为如下代码：</p>
+<pre><code>int main(int argc, char * argv[]) {        
+BOOL running = YES;
+do {
+// 执行各种任务，处理各种事件
+// ......
+} while (running);
+
+return 0;
+}!
+</code></pre><p><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-30%20%E4%B8%8B%E5%8D%884.12.04.png" alt=""></p>
+<p>从上图中可以看出，RunLoop就是线程中的一个循环，RunLoop在循环中会不断检测，通过Input sources（输入源）和Timer sources（定时源）两种来源等待接受事件；然后对接受到的事件通知线程进行处理，并在没有事件的时候进行休息。</p>
 
       
     </div>
@@ -395,7 +404,7 @@
       
         <div class="post-tags">
           
-            <a href="/tags/UIDynamic/" rel="tag"># UIDynamic</a>
+            <a href="/tags/runloop/" rel="tag"># runloop</a>
           
         </div>
       
@@ -408,8 +417,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/24/Hexo-创建个人空间博客/" rel="next" title="Hexo 创建个人空间博客">
-                <i class="fa fa-chevron-left"></i> Hexo 创建个人空间博客
+              <a href="/2017/06/29/多线程锁之对象锁-NSLock-条件锁-NSCondition/" rel="next" title="多线程锁之对象锁(NSLock) 条件锁(NSCondition)">
+                <i class="fa fa-chevron-left"></i> 多线程锁之对象锁(NSLock) 条件锁(NSCondition)
               </a>
             
           </div>
@@ -417,10 +426,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/06/27/UIDynamic-物理仿真-Demo/" rel="prev" title="UIDynamic 物理仿真 (Demo 1)">
-                UIDynamic 物理仿真 (Demo 1) <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
