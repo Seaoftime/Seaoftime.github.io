@@ -93,17 +93,19 @@
 
 
 
-<meta name="description" content="![摩拜官方 app 效果][1] 主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonato">
+<meta name="description" content="主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonatomic, strong) UIGr">
 <meta name="keywords" content="UIDynamic">
 <meta property="og:type" content="article">
 <meta property="og:title" content="模仿摩拜单车-我的贴纸">
 <meta property="og:url" content="http://yoursite.com/2017/07/06/模仿摩拜单车-我的贴纸/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="![摩拜官方 app 效果][1] 主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonato">
-<meta property="og:updated_time" content="2017-07-06T06:45:16.000Z">
+<meta property="og:description" content="主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonatomic, strong) UIGr">
+<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/1389572-cb41c14c7d2444a1.jpg">
+<meta property="og:updated_time" content="2017-07-06T06:49:54.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="模仿摩拜单车-我的贴纸">
-<meta name="twitter:description" content="![摩拜官方 app 效果][1] 主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonato">
+<meta name="twitter:description" content="主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonatomic, strong) UIGr">
+<meta name="twitter:image" content="http://oq33ifg3c.bkt.clouddn.com/1389572-cb41c14c7d2444a1.jpg">
 
 
 
@@ -342,7 +344,7 @@
       
 
       
-        <p>![摩拜官方 app 效果][1]</p>
+        <p><img src="http://oq33ifg3c.bkt.clouddn.com/1389572-cb41c14c7d2444a1.jpg" alt="摩拜单车 app 效果"></p>
 <p><strong>主要代码如下：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//运动管理者</div><div class="line">@property (nonatomic, strong) CMMotionManager *manager;</div><div class="line"></div><div class="line">//物理行为（动态媒介）</div><div class="line">@property (nonatomic, strong) UIDynamicAnimator *animator;</div><div class="line"></div><div class="line">//重力行为</div><div class="line">@property (nonatomic, strong) UIGravityBehavior *gravity;</div><div class="line"></div><div class="line">//碰撞行为</div><div class="line">@property (nonatomic, strong) UICollisionBehavior *collision;</div><div class="line"></div><div class="line">//动力学属性</div><div class="line">@property (nonatomic, strong) UIDynamicItemBehavior *dynamic;</div></pre></td></tr></table></figure>
 <pre><code>- (UICollisionBehavior *)collision{
