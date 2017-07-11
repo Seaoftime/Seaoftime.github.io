@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="KVO," />
 
 
 
@@ -93,15 +93,20 @@
 
 
 
-<meta name="description" content="没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，偶尔文艺的资深伪文青。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rui’s 个人小屋">
-<meta property="og:url" content="http://yoursite.com/tags/runtimeDemo/index.html">
+<meta name="description" content="1.KVO和通知（Notification）同属于观察者模式。2.观察者模式的定义：观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。  代码示例： 首先创建一个 ZRPerson 类 @interface ZRPerson : NSObject  @property (nonatomic,">
+<meta name="keywords" content="KVO">
+<meta property="og:type" content="article">
+<meta property="og:title" content="iOS KVO Demo">
+<meta property="og:url" content="http://yoursite.com/2017/07/11/iOS-KVO-Demo/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，偶尔文艺的资深伪文青。">
+<meta property="og:description" content="1.KVO和通知（Notification）同属于观察者模式。2.观察者模式的定义：观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。  代码示例： 首先创建一个 ZRPerson 类 @interface ZRPerson : NSObject  @property (nonatomic,">
+<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.57.58.png">
+<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.58.45.png">
+<meta property="og:updated_time" content="2017-07-11T03:26:53.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rui’s 个人小屋">
-<meta name="twitter:description" content="没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，偶尔文艺的资深伪文青。">
+<meta name="twitter:title" content="iOS KVO Demo">
+<meta name="twitter:description" content="1.KVO和通知（Notification）同属于观察者模式。2.观察者模式的定义：观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。  代码示例： 首先创建一个 ZRPerson 类 @interface ZRPerson : NSObject  @property (nonatomic,">
+<meta name="twitter:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.57.58.png">
 
 
 
@@ -129,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/tags/runtimeDemo/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/11/iOS-KVO-Demo/"/>
 
 
 
 
 
-  <title>Tag: runtimeDemo | Rui’s 个人小屋</title>
+  <title>iOS KVO Demo | Rui’s 个人小屋</title>
   
 
 
@@ -160,7 +165,7 @@
     
   
 
-  <div class="container sidebar-position-left  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,44 +249,212 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h1>runtimeDemo<small>Tag</small>
-      </h1>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/iOS-KVO-Demo/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rui’s 个人小屋">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">iOS KVO Demo</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-11T11:05:14+08:00">
+                2017-07-11
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>1.KVO和通知（Notification）同属于观察者模式。<br>2.观察者模式的定义：<br>观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。 </p>
+<p><strong>代码示例：</strong></p>
+<p>首先创建一个 ZRPerson 类</p>
+<pre><code>@interface ZRPerson : NSObject
 
-      <h2 class="post-title">
+@property (nonatomic, copy) NSString *name;
+
+@property (nonatomic, assign) NSInteger age;
+
+
+@end
+</code></pre><p>在 ViewController 中初始化 和 属性赋值：</p>
+<pre><code>self.zrPerson = [[ZRPerson alloc] init];
+
+self.zrPerson.name = @&quot;zhangsan&quot;;
+
+self.zrPerson.age = 18;
+
+//设置监听。。。
+// KeyPath 与 Key 虽然都是通过键去找值 但是 KeyPath 会自动寻址（一层一层的 valueForKey 下去）
+[self.zrPerson addObserver:self forKeyPath:@&quot;age&quot; options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
+</code></pre><pre><code>//第一次改值
+self.zrPerson.age = 81;//点语法（setter）相当于 setValue forKey
+
+//第二次改值
+dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
+
+[self.zrPerson setValue:@88 forKey:@&quot;age&quot;];//
+});
+</code></pre><p>监听回调：</p>
+<pre><code>- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSKeyValueChangeKey,id&gt; *)change context:(void *)context {
+
+
+if ([keyPath isEqualToString:@&quot;age&quot;]) {
+
+NSLog(@&quot;%@&quot;,[object valueForKey:@&quot;age&quot;]);
+
+NSLog(@&quot;change___:%@&quot;,change);
+}
+
+}
+</code></pre><p>打印的change：</p>
+<pre><code>Change:{
+kind = 1;
+new = 81;
+old = 18;
+}
+
+Change:{
+kind = 1;
+new = 88;
+old = 81;
+}
+</code></pre><p>那么 KVO 底层是怎么实现的呢？<br>//在 addObserver 处打个断点</p>
+<p><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.57.58.png" alt="kvo demo"></p>
+<p>在 setValue 处打个断点：<br><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.58.45.png" alt="kvo demo"></p>
+<p>我们会发现 isa 指针发生了变化</p>
+<p><strong>总结：</strong><br>KVO 底层实现原理是系统给当前类创建子类 , 在子类 setter 方法调用父类的 setter 方法。通过修改 isa 指针指向系统创建的子类, 实现当前类属性值改变的监听。</p>
+<p>###<br>最后别忘了移除观察者。</p>
+<pre><code>// 释放观察者
+- (void)dealloc {
+
+[self.zrPerson removeObserver:self forKeyPath:@&quot;age&quot;];
+}
+</code></pre><p>###<br>持续更新。。。</p>
+
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/06/29/为一个实例动态替换方法-demo/" itemprop="url">
-              
-                <span itemprop="name">为一个实例动态替换方法(demo)</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h2>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-29T14:07:06+08:00"
-              content="2017-06-29" >
-          06-29
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/KVO/" rel="tag"># KVO</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/07/iOS-音视频合成Demo/" rel="next" title="iOS 音视频合成Demo">
+                <i class="fa fa-chevron-left"></i> iOS 音视频合成Demo
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
 
           </div>
@@ -289,6 +462,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -515,10 +692,10 @@
 
 
   
-    <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
 <script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
 
-  
+
 
   
 
