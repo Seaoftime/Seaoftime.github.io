@@ -100,7 +100,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/06/29/为一个实例动态替换方法-demo/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
 <meta property="og:description" content="为 Nsobject 写一个分类： 123.h+ (void)hookWithInstance:(NSObject *)instance method:(SEL)selector; 1234567891011121314151617.m+ (void)hookWithInstance:(id)instance method:(SEL)selector &amp;#123;Method originMeth">
-<meta property="og:updated_time" content="2017-06-29T06:16:27.000Z">
+<meta property="og:updated_time" content="2017-07-12T02:06:24.000Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="为一个实例动态替换方法(demo)">
 <meta name="twitter:description" content="为 Nsobject 写一个分类： 123.h+ (void)hookWithInstance:(NSObject *)instance method:(SEL)selector; 1234567891011121314151617.m+ (void)hookWithInstance:(id)instance method:(SEL)selector &amp;#123;Method originMeth">
@@ -352,6 +352,7 @@
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">ViewController *vc = [[ViewController alloc] init];</div><div class="line"></div><div class="line">[vc drink];</div><div class="line"></div><div class="line">NSLog(@&quot;-----*************------&quot;);</div><div class="line"></div><div class="line">ViewController *hookedInstance= [[ViewController alloc] init];</div><div class="line"></div><div class="line">[ViewController hookWithInstance:hookedInstance method:@selector(drink)];</div><div class="line"></div><div class="line">[hookedInstance drink];</div></pre></td></tr></table></figure>
 <p><strong>打印结果：</strong></p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">InstanceMethodReplace[65905:2261321] original drink</div><div class="line">2017-06-29 14:15:08.577 InstanceMethodReplace[65905:2261321] -----*************------</div><div class="line">2017-06-29 14:15:08.577 InstanceMethodReplace[65905:2261321] SubViewController drink</div><div class="line">2017-06-29 14:15:08.577 InstanceMethodReplace[65905:2261321] original drink</div></pre></td></tr></table></figure>
+<p>###<br>更多信息可以参考老谭笔记：<a href="http://www.tanhao.me/code/160723.html/#more" target="_blank" rel="external">http://www.tanhao.me/code/160723.html/#more</a></p>
 
       
     </div>
