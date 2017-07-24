@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="NSOperation," />
+  <meta name="keywords" content="swift字符串," />
 
 
 
@@ -93,17 +93,17 @@
 
 
 
-<meta name="description" content="NSOperation &amp;amp;&amp;amp; NSOperationQueueNSOperation 基于 GCD （C），比 GCD 更加的面向对象（OC）。  NSOperation 的三种创建方式： 创建NSInvocationOperation// NSInvocationOperation *invocationOperation = [[NSInvocationOperation al">
-<meta name="keywords" content="NSOperation">
+<meta name="description" content="###以下是一些字符串的处理： ###字符串的定义 var str1 = &amp;quot;hello&amp;quot; //字符串变量  let str2 = &amp;quot;hello&amp;quot; //字符串常量  let str3 = &amp;quot;&amp;quot; //空字符串  let str4 = String() //空字符串 ###字符串的连接//使用 + 号 let str1 = &amp;quot;hell">
+<meta name="keywords" content="swift字符串">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS 多线程使用之NSOperation">
-<meta property="og:url" content="http://yoursite.com/2017/07/13/iOS-多线程使用之NSOperation/index.html">
+<meta property="og:title" content="Swift3-字符串处理">
+<meta property="og:url" content="http://yoursite.com/2017/07/24/Swift3-字符串处理/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="NSOperation &amp;amp;&amp;amp; NSOperationQueueNSOperation 基于 GCD （C），比 GCD 更加的面向对象（OC）。  NSOperation 的三种创建方式： 创建NSInvocationOperation// NSInvocationOperation *invocationOperation = [[NSInvocationOperation al">
-<meta property="og:updated_time" content="2017-07-13T02:47:19.000Z">
+<meta property="og:description" content="###以下是一些字符串的处理： ###字符串的定义 var str1 = &amp;quot;hello&amp;quot; //字符串变量  let str2 = &amp;quot;hello&amp;quot; //字符串常量  let str3 = &amp;quot;&amp;quot; //空字符串  let str4 = String() //空字符串 ###字符串的连接//使用 + 号 let str1 = &amp;quot;hell">
+<meta property="og:updated_time" content="2017-07-24T06:17:41.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS 多线程使用之NSOperation">
-<meta name="twitter:description" content="NSOperation &amp;amp;&amp;amp; NSOperationQueueNSOperation 基于 GCD （C），比 GCD 更加的面向对象（OC）。  NSOperation 的三种创建方式： 创建NSInvocationOperation// NSInvocationOperation *invocationOperation = [[NSInvocationOperation al">
+<meta name="twitter:title" content="Swift3-字符串处理">
+<meta name="twitter:description" content="###以下是一些字符串的处理： ###字符串的定义 var str1 = &amp;quot;hello&amp;quot; //字符串变量  let str2 = &amp;quot;hello&amp;quot; //字符串常量  let str3 = &amp;quot;&amp;quot; //空字符串  let str4 = String() //空字符串 ###字符串的连接//使用 + 号 let str1 = &amp;quot;hell">
 
 
 
@@ -131,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/13/iOS-多线程使用之NSOperation/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/24/Swift3-字符串处理/"/>
 
 
 
 
 
-  <title>iOS 多线程使用之NSOperation | Rui’s 个人小屋</title>
+  <title>Swift3-字符串处理 | Rui’s 个人小屋</title>
   
 
 
@@ -256,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/13/iOS-多线程使用之NSOperation/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/24/Swift3-字符串处理/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rui">
@@ -273,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS 多线程使用之NSOperation</h1>
+          <h1 class="post-title" itemprop="name headline">Swift3-字符串处理</h1>
         
 
         <div class="post-meta">
@@ -285,8 +285,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-13T10:27:12+08:00">
-                2017-07-13
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-24T11:46:42+08:00">
+                2017-07-24
               </time>
             
 
@@ -295,28 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/多线程/" itemprop="url" rel="index">
-                    <span itemprop="name">多线程</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -342,100 +320,133 @@
       
 
       
-        <p><strong>NSOperation &amp;&amp; NSOperationQueue</strong><br>NSOperation 基于 GCD （C），比 GCD 更加的面向对象（OC）。 </p>
-<p><strong>NSOperation 的三种创建方式：</strong></p>
-<h3 id="创建NSInvocationOperation"><a href="#创建NSInvocationOperation" class="headerlink" title="创建NSInvocationOperation"></a>创建NSInvocationOperation</h3><pre><code>//
-NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(invocationOperation) object:nil];
-// 开始执行操作
-[invocationOperation start];
-</code></pre><h3 id="NSBlockOperation的使用"><a href="#NSBlockOperation的使用" class="headerlink" title="NSBlockOperation的使用"></a>NSBlockOperation的使用</h3><pre><code>NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@&quot;NSBlockOperation包含的任务，没有加入队列%@&quot;, [NSThread currentThread]);
-}];
+        <p>###以下是一些字符串的处理：</p>
+<p>###字符串的定义</p>
+<pre><code>var str1 = &quot;hello&quot; //字符串变量
 
-[blockOperation start];
-</code></pre><h3 id="运用继承自NSOperation的子类"><a href="#运用继承自NSOperation的子类" class="headerlink" title="运用继承自NSOperation的子类"></a>运用继承自NSOperation的子类</h3><pre><code>ZROperation *operation = [[ZROperation alloc] init];
-[operation start];
-</code></pre><h3 id="运用-addExecutionBlock-实现多线程"><a href="#运用-addExecutionBlock-实现多线程" class="headerlink" title="运用 addExecutionBlock:实现多线程"></a>运用 addExecutionBlock:实现多线程</h3><pre><code>NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
-NSLog(@&quot;NSBlockOperation运用addExecutionBlock%@&quot;, [NSThread currentThread]);
-}];
+let str2 = &quot;hello&quot; //字符串常量
 
-[blockOperation addExecutionBlock:^{
-NSLog(@&quot;addExecutionBlock方法添加任务1%@&quot;, [NSThread currentThread]);
-}];
-[blockOperation addExecutionBlock:^{
-NSLog(@&quot;addExecutionBlock方法添加任务2%@&quot;, [NSThread currentThread]);
-}];
-[blockOperation addExecutionBlock:^{
-NSLog(@&quot;addExecutionBlock方法添加任务3%@&quot;, [NSThread currentThread]);
-}];
+let str3 = &quot;&quot; //空字符串
 
-[blockOperation start];
-</code></pre><h3 id="addOperation把任务添加到队列"><a href="#addOperation把任务添加到队列" class="headerlink" title="addOperation把任务添加到队列"></a>addOperation把任务添加到队列</h3><pre><code>//NSOperationQueue 默认并发
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+let str4 = String() //空字符串
+</code></pre><p>###字符串的连接<br>//使用 + 号</p>
+<pre><code>let str1 = &quot;hello&quot;
 
-// 创建操作，NSInvocationOperation
-NSInvocationOperation *invocationOperation = [[NSInvocationOperation alloc] initWithTarget:self selector:@selector(invocationOperationAddOperation) object:nil];
-// 创建操作，NSBlockOperation
-NSBlockOperation *blockOperation = [NSBlockOperation blockOperationWithBlock:^{
-for (int i = 0; i &lt; 3; i++) {
-NSLog(@&quot;addOperation把任务添加到队列%@&quot;, [NSThread currentThread]);
+let str2 = &quot;swift&quot;
+
+let str3 = str1 + str2
+
+print(str3)
+</code></pre><p>//使用字符串插值(该方法也可用于字符串与其他类型值的连接)</p>
+<pre><code>let str4 = &quot;\(str1)\(str2)&quot;
+print(str4)
+</code></pre><p>###字符串枚举字符</p>
+<pre><code>let str = &quot;字符串枚举字符&quot;
+
+for ch in str.characters {
+
+print(ch)
+
 }
-}];
+</code></pre><p>###字符串的长度</p>
+<pre><code>let str11 = &quot;hello word&quot;
+print(str11.characters.count)
+</code></pre><p>###首字母大写capitalized</p>
+<pre><code>let str111 = &quot;hello&quot;
+let str222 = str111.capitalized
 
-[queue addOperation:invocationOperation];
-[queue addOperation:blockOperation];
-</code></pre><h3 id="addOperationWithBlock把任务添加到队列"><a href="#addOperationWithBlock把任务添加到队列" class="headerlink" title="addOperationWithBlock把任务添加到队列"></a>addOperationWithBlock把任务添加到队列</h3><pre><code>// NSOperationQueue 默认并发
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+print(str222)
+</code></pre><p>###字符串全部转为小写lowrecase</p>
+<pre><code>let str111 = &quot;HELLO&quot;
+let str22 = str111.lowercased()
 
-// 添加操作到队列
-[queue addOperationWithBlock:^{
-for (int i = 0; i &lt; 3; i++) {
-NSLog(@&quot;addOperationWithBlock把任务添加到队列%@&quot;, [NSThread currentThread]);
+print(str22)
+</code></pre><p>###按照下标截取子字符串</p>
+<pre><code>let str1 = &quot;HELLO word&quot;
+
+//从头开始截取
+let str2 = str1.substring(from: str1.startIndex)
+
+//截取到尾部
+let str3 = str1.substring(to: str1.endIndex)
+
+//获取截取范围
+let i = str1.index(str1.startIndex, offsetBy: 3)
+
+let j = str1.index(str1.startIndex, offsetBy: 9)
+
+let str4 = str1.substring(with: i..&lt;j)
+
+print(str2)
+
+print(str3)
+
+print(str4)
+</code></pre><p>###字符串的比较 判断两个字符串是否相等</p>
+<pre><code>let str22 = &quot;hello&quot;
+
+let str222 = &quot;hello3&quot;
+
+if str22 == str222 {
+
+print(&quot;两个字符串相等&quot;)
+
+} else {
+
+print(&quot;两个字符串不相等&quot;)
+
 }
-}];
-</code></pre><h3 id="线程间通信"><a href="#线程间通信" class="headerlink" title="** 线程间通信"></a>** 线程间通信</h3><pre><code>// 创建队列，默认并发
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+</code></pre><p>###判断字符串是否包含子串</p>
+<pre><code>let str33 = &quot;hello swift&quot;
 
-// 在子线程进行耗时操作
-[queue addOperationWithBlock:^{
-// 耗时操作放在这里，例如下载图片。（运用线程休眠三秒来模拟耗时操作）
-[NSThread sleepForTimeInterval:2];
-UIImage *image = [UIImage imageNamed:@&quot;&quot;];
+let str3311 = &quot;SWIFT&quot;
 
-// 回到主线程进行UI操作
-[[NSOperationQueue mainQueue] addOperationWithBlock:^{
-// 在主线程上添加图片
-self.imageView.image = image;
+let range11 = str33.range(of: str3311)//正向查找
 
-self.hideImageViewButton.hidden = NO;
-self.imageView.hidden = NO;
-}];
-}];
-</code></pre><h3 id="设置最大并发数"><a href="#设置最大并发数" class="headerlink" title="设置最大并发数"></a>设置最大并发数</h3><pre><code>// 创建队列，默认并发
-NSOperationQueue *queue = [[NSOperationQueue alloc] init];
+let range22 = str33.range(of: str3311, options: .backwards)//反向查找
 
-// 最大并发数为1，串行
-queue.maxConcurrentOperationCount = 1;
+let range33 = str33.range(of:str3311, options: .caseInsensitive, range:nil , locale:nil)//忽略大小写
 
-// 最大并发数 &gt; 2，并行
-//queue.maxConcurrentOperationCount = 2;
+if range11 != nil {
 
+print(&quot;str33中包含着子串&quot;)
 
-// 添加操作到队列
-[queue addOperationWithBlock:^{
-for (int i = 0; i &lt; 3; i++) {
-NSLog(@&quot;addOperationWithBlock把任务添加到队列1%@&quot;, [NSThread currentThread]);
+} else {
+
+print(&quot;str33中不包含子串&quot;)
+
 }
-}];
+</code></pre><p>###字符串的分解</p>
+<pre><code>var str1 = &quot;hello,word,hello,you,!&quot;
 
-// 添加操作到队列
-[queue addOperationWithBlock:^{
-for (int i = 0; i &lt; 3; i++) {
-NSLog(@&quot;addOperationWithBlock把任务添加到队列2%@&quot;, [NSThread currentThread]);
+let strArray1:[String] = str1.components(separatedBy: &quot;,&quot;)
+
+for index in strArray1 {
+
+print(index)
+
 }
-}];
-</code></pre><p>###=======================<br>持续更新。。。</p>
+</code></pre><p>###字符串替换replace</p>
+<pre><code>var str1 = &quot;hello word,hello you!&quot;
 
+let str2 = str1.replacingOccurrences(of: &quot;word&quot;, with: &quot;swift&quot;)//字符串替换字符串
+
+let i = str1.index(str1.startIndex, offsetBy: 6)
+
+let j = str1.index(str1.startIndex, offsetBy: 12)
+
+let str3 = str1.replacingCharacters(in: (i..&lt;j), with: &quot;swift&quot;)
+//字符串替换某个范围的字符串
+
+
+let str4 = str1.replacingOccurrences(of: &quot;WorD&quot;, with: &quot;SWIFT&quot;, options: .caseInsensitive, range: nil)//忽略大小写替换
+
+print(str2)
+
+print(str3)
+
+print(str4)
+</code></pre>
       
     </div>
 
@@ -464,7 +475,7 @@ NSLog(@&quot;addOperationWithBlock把任务添加到队列2%@&quot;, [NSThread c
       
         <div class="post-tags">
           
-            <a href="/tags/NSOperation/" rel="tag"># NSOperation</a>
+            <a href="/tags/swift字符串/" rel="tag"># swift字符串</a>
           
         </div>
       
@@ -477,8 +488,8 @@ NSLog(@&quot;addOperationWithBlock把任务添加到队列2%@&quot;, [NSThread c
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/11/iOS-KVO-Demo/" rel="next" title="iOS KVO Demo">
-                <i class="fa fa-chevron-left"></i> iOS KVO Demo
+              <a href="/2017/07/21/iOS-开发小知识/" rel="next" title="iOS-开发小知识">
+                <i class="fa fa-chevron-left"></i> iOS-开发小知识
               </a>
             
           </div>
@@ -486,10 +497,6 @@ NSLog(@&quot;addOperationWithBlock把任务添加到队列2%@&quot;, [NSThread c
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/18/Swift-下划线/" rel="prev" title="Swift-下划线">
-                Swift-下划线 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -536,17 +543,8 @@ NSLog(@&quot;addOperationWithBlock把任务添加到队列2%@&quot;, [NSThread c
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            Inhaltsverzeichnis
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            Übersicht
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel">
+      <section class="site-overview sidebar-panel sidebar-panel-active">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png"
@@ -628,22 +626,6 @@ NSLog(@&quot;addOperationWithBlock把任务添加到队列2%@&quot;, [NSThread c
 
       </section>
 
-      
-      <!--noindex-->
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-
-            
-              
-            
-
-            
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#创建NSInvocationOperation"><span class="nav-number">1.</span> <span class="nav-text">创建NSInvocationOperation</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#NSBlockOperation的使用"><span class="nav-number">2.</span> <span class="nav-text">NSBlockOperation的使用</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用继承自NSOperation的子类"><span class="nav-number">3.</span> <span class="nav-text">运用继承自NSOperation的子类</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#运用-addExecutionBlock-实现多线程"><span class="nav-number">4.</span> <span class="nav-text">运用 addExecutionBlock:实现多线程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#addOperation把任务添加到队列"><span class="nav-number">5.</span> <span class="nav-text">addOperation把任务添加到队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#addOperationWithBlock把任务添加到队列"><span class="nav-number">6.</span> <span class="nav-text">addOperationWithBlock把任务添加到队列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#线程间通信"><span class="nav-number">7.</span> <span class="nav-text">** 线程间通信</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#设置最大并发数"><span class="nav-number">8.</span> <span class="nav-text">设置最大并发数</span></a></li></ol></div>
-            
-
-          </div>
-        </section>
-      <!--/noindex-->
       
 
       
