@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="KVO," />
+  <meta name="keywords" content="autorelease," />
 
 
 
@@ -93,20 +93,17 @@
 
 
 
-<meta name="description" content="1.KVO和通知（Notification）同属于观察者模式。2.观察者模式的定义：观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。  代码示例： 首先创建一个 ZRPerson 类 @interface ZRPerson : NSObject  @property (nonatomic,">
-<meta name="keywords" content="KVO">
+<meta name="description" content="###autorelease类似于C语言中的自动变量, 超出其作用域(有效范围)便自动废弃 1234&amp;#123;int a;&amp;#125;//变量 a 被废弃 ###NSAutoreleasePool 与 @autoreleasepool NSAutoreleasePool 是 Cocoa 用来支持引用计数内存管理机制的类在ARC下, 不能使用NSAutoreleasePool这个类来创建自动释放池">
+<meta name="keywords" content="autorelease">
 <meta property="og:type" content="article">
-<meta property="og:title" content="iOS KVO Demo">
-<meta property="og:url" content="http://yoursite.com/2017/07/11/iOS-KVO-Demo/index.html">
+<meta property="og:title" content="OC - Autorelease 与 @autoreleasepool">
+<meta property="og:url" content="http://yoursite.com/2017/07/27/OC-Autorelease-与-autoreleasepool/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="1.KVO和通知（Notification）同属于观察者模式。2.观察者模式的定义：观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。  代码示例： 首先创建一个 ZRPerson 类 @interface ZRPerson : NSObject  @property (nonatomic,">
-<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.57.58.png">
-<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.58.45.png">
-<meta property="og:updated_time" content="2017-07-11T03:26:53.000Z">
+<meta property="og:description" content="###autorelease类似于C语言中的自动变量, 超出其作用域(有效范围)便自动废弃 1234&amp;#123;int a;&amp;#125;//变量 a 被废弃 ###NSAutoreleasePool 与 @autoreleasepool NSAutoreleasePool 是 Cocoa 用来支持引用计数内存管理机制的类在ARC下, 不能使用NSAutoreleasePool这个类来创建自动释放池">
+<meta property="og:updated_time" content="2017-07-27T03:46:19.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="iOS KVO Demo">
-<meta name="twitter:description" content="1.KVO和通知（Notification）同属于观察者模式。2.观察者模式的定义：观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。  代码示例： 首先创建一个 ZRPerson 类 @interface ZRPerson : NSObject  @property (nonatomic,">
-<meta name="twitter:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.57.58.png">
+<meta name="twitter:title" content="OC - Autorelease 与 @autoreleasepool">
+<meta name="twitter:description" content="###autorelease类似于C语言中的自动变量, 超出其作用域(有效范围)便自动废弃 1234&amp;#123;int a;&amp;#125;//变量 a 被废弃 ###NSAutoreleasePool 与 @autoreleasepool NSAutoreleasePool 是 Cocoa 用来支持引用计数内存管理机制的类在ARC下, 不能使用NSAutoreleasePool这个类来创建自动释放池">
 
 
 
@@ -134,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/11/iOS-KVO-Demo/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/07/27/OC-Autorelease-与-autoreleasepool/"/>
 
 
 
 
 
-  <title>iOS KVO Demo | Rui’s 个人小屋</title>
+  <title>OC - Autorelease 与 @autoreleasepool | Rui’s 个人小屋</title>
   
 
 
@@ -259,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/11/iOS-KVO-Demo/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/27/OC-Autorelease-与-autoreleasepool/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rui">
@@ -276,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">iOS KVO Demo</h1>
+          <h1 class="post-title" itemprop="name headline">OC - Autorelease 与 @autoreleasepool</h1>
         
 
         <div class="post-meta">
@@ -288,8 +285,8 @@
               
                 <span class="post-meta-item-text">Posted on</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-11T11:05:14+08:00">
-                2017-07-11
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-27T10:42:12+08:00">
+                2017-07-27
               </time>
             
 
@@ -323,71 +320,19 @@
       
 
       
-        <p>1.KVO和通知（Notification）同属于观察者模式。<br>2.观察者模式的定义：<br>观察者模式定义了一种一对多的依赖关系，让多个观察者对象同时监听某一个主题对象。这个主题对象在状态上发生变化时，会通知所有观察者对象，使它们能够自动更新自己。 </p>
-<p><strong>代码示例：</strong></p>
-<p>首先创建一个 ZRPerson 类</p>
-<pre><code>@interface ZRPerson : NSObject
-
-@property (nonatomic, copy) NSString *name;
-
-@property (nonatomic, assign) NSInteger age;
-
-
-@end
-</code></pre><p>在 ViewController 中初始化 和 属性赋值：</p>
-<pre><code>self.zrPerson = [[ZRPerson alloc] init];
-
-self.zrPerson.name = @&quot;zhangsan&quot;;
-
-self.zrPerson.age = 18;
-
-//设置监听。。。
-// KeyPath 与 Key 虽然都是通过键去找值 但是 KeyPath 会自动寻址（一层一层的 valueForKey 下去）
-[self.zrPerson addObserver:self forKeyPath:@&quot;age&quot; options:NSKeyValueObservingOptionOld | NSKeyValueObservingOptionNew context:nil];
-</code></pre><pre><code>//第一次改值
-self.zrPerson.age = 81;//点语法（setter）相当于 setValue forKey
-
-//第二次改值
-dispatch_after(dispatch_time(DISPATCH_TIME_NOW, (int64_t)(3 * NSEC_PER_SEC)), dispatch_get_main_queue(), ^{
-
-[self.zrPerson setValue:@88 forKey:@&quot;age&quot;];//
-});
-</code></pre><p>监听回调：</p>
-<pre><code>- (void)observeValueForKeyPath:(NSString *)keyPath ofObject:(id)object change:(NSDictionary&lt;NSKeyValueChangeKey,id&gt; *)change context:(void *)context {
-
-
-if ([keyPath isEqualToString:@&quot;age&quot;]) {
-
-NSLog(@&quot;%@&quot;,[object valueForKey:@&quot;age&quot;]);
-
-NSLog(@&quot;change___:%@&quot;,change);
-}
-
-}
-</code></pre><p>打印的change：</p>
-<pre><code>Change:{
-kind = 1;
-new = 81;
-old = 18;
-}
-
-Change:{
-kind = 1;
-new = 88;
-old = 81;
-}
-</code></pre><p>那么 KVO 底层是怎么实现的呢？<br>//在 addObserver 处打个断点</p>
-<p><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.57.58.png" alt="kvo demo"></p>
-<p>在 setValue 处打个断点：<br><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-07-11%20%E4%B8%8A%E5%8D%8810.58.45.png" alt="kvo demo"></p>
-<p>我们会发现 isa 指针发生了变化</p>
-<p><strong>总结：</strong><br>KVO 底层实现原理是系统给当前类创建子类 , 在子类 setter 方法调用父类的 setter 方法。通过修改 isa 指针指向系统创建的子类, 实现当前类属性值改变的监听。</p>
-<p>###<br>最后别忘了移除观察者。</p>
-<pre><code>// 释放观察者
-- (void)dealloc {
-
-[self.zrPerson removeObserver:self forKeyPath:@&quot;age&quot;];
-}
-</code></pre><p>###<br>持续更新。。。</p>
+        <p>###autorelease<br>类似于C语言中的自动变量, 超出其作用域(有效范围)便自动废弃</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">&#123;</div><div class="line">int a;</div><div class="line">&#125;</div><div class="line">//变量 a 被废弃</div></pre></td></tr></table></figure>
+<p>###NSAutoreleasePool 与 @autoreleasepool</p>
+<p>NSAutoreleasePool 是 Cocoa 用来支持引用计数内存管理机制的类<br>在ARC下, 不能使用NSAutoreleasePool这个类来创建自动释放池, 而应该用@autoreleasepool { } 这个block</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">@autoreleasepool &#123;</div><div class="line">// Code benefitting from a local autorelease pool.</div><div class="line">&#125;</div><div class="line"></div><div class="line">//注 1: 官方文档说明,使用@autoreleasepool这个block比NSAutoreleasePool更高效!并且在MRC环境下同样适用</div><div class="line"></div><div class="line"></div><div class="line">//注 2: 程序中至少存在一个自动释放池, 否则autoreleased对象将不能对应收到release消息而导致内存泄露</div><div class="line">如下：</div><div class="line">/*</div><div class="line">int main(int argc, char * argv[]) &#123;</div><div class="line">@autoreleasepool &#123;</div><div class="line">return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p>###autorelease pool 与 线程</p>
+<p>每一个线程(包括主线程)都有一个NSAutoreleasePool栈. 当一个新的池子被创建的时候, push进栈. 当池子被释放内存时, pop出栈. 对象调用autorelease方法进入栈顶的池子中. 当线程结束的时候, 它会自动地销毁掉所有跟它有关联的池子</p>
+<p>###autorelease pool 与 RunLoop</p>
+<p>程序运行 -&gt; 开启事件循环 -&gt; 发生触摸事件 -&gt; 创建自动释放池 -&gt; 处理触摸事件 -&gt; 事件对象加入自动释放池 -&gt; 一次事件循环结束, 销毁自动释放池</p>
+<p>###什么时候需要自己手动创建autorelease pool</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//苹果官方文档 :</div><div class="line"></div><div class="line">//1. If you are writing a program that is not based on a UI framework, such as a command-line tool.</div><div class="line"></div><div class="line">//2. If you write a loop that creates many temporary objects.You may use an autorelease pool block inside the loop to dispose of those objects before the next iteration. Using an autorelease pool block in the loop helps to reduce the maximum memory footprint of the application.</div><div class="line"></div><div class="line">//3. If you spawn a secondary thread.You must create your own autorelease pool block as soon as the thread begins executing; otherwise, your application will leak objects.</div><div class="line"></div><div class="line">//你写的程序不是基于UI framework, 例如命令行项目</div><div class="line"></div><div class="line">//你写的循环创建了大量临时对象 -&gt; 你需要在循环体内创建一个autorelease pool block并且在每次循环结束之前处理那些autoreleased对象. 在循环中使用autorelease pool block可以降低内存峰值</div><div class="line"></div><div class="line">//你创建了一个新线程 当线程开始执行的时候你必须立马创建一个autorelease pool block, 否则你的应用会造成内存泄露.</div></pre></td></tr></table></figure>
+<p>###不明显的 autorelease<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">//1. 数组的创建</div><div class="line">//NSMutableArray *array = [NSMutableArray arrayWithCapacity:1];</div><div class="line">// 实际上这个方法也返回了一个autorelease对象.</div></pre></td></tr></table></figure></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//2. 数组的遍历</div><div class="line">//NSArray *array22 = [[NSArray alloc] init];</div><div class="line">//[array22 enumerateObjectsUsingBlock:^(id  _Nonnull obj, NSUInteger idx, BOOL * _Nonnull stop) &#123;</div><div class="line">//这里其实有一个 @autorelease pool</div><div class="line">//&#125;];</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -417,7 +362,7 @@ old = 81;
       
         <div class="post-tags">
           
-            <a href="/tags/KVO/" rel="tag"># KVO</a>
+            <a href="/tags/autorelease/" rel="tag"># autorelease</a>
           
         </div>
       
@@ -430,8 +375,8 @@ old = 81;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/07/iOS-音视频合成Demo/" rel="next" title="iOS 音视频合成Demo">
-                <i class="fa fa-chevron-left"></i> iOS 音视频合成Demo
+              <a href="/2017/07/26/Swift3-数组操作/" rel="next" title="Swift3-数组操作">
+                <i class="fa fa-chevron-left"></i> Swift3-数组操作
               </a>
             
           </div>
@@ -439,10 +384,6 @@ old = 81;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/13/iOS-多线程使用之NSOperation/" rel="prev" title="iOS 多线程使用之NSOperation">
-                iOS 多线程使用之NSOperation <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
