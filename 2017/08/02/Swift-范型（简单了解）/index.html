@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="swift范型," />
 
 
 
@@ -93,15 +93,17 @@
 
 
 
-<meta name="description" content="没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，最近正在自学 Swift，偶尔文艺的资深伪文青。">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Rui’s 个人小屋">
-<meta property="og:url" content="http://yoursite.com/archives/page/4/index.html">
+<meta name="description" content="概念：就像 swift 数组字典一样 能储存的元素或键值对的类型都是不确定的，有可能是 int float string… ###泛型函数: 123456789101112//交换两个数的值func swapInt( a: inout Int, b: inout Int) &amp;#123;let temp = aa = bb = temp&amp;#125;var a = 100var b = 200//函数">
+<meta name="keywords" content="swift范型">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Swift - 范型（简单了解）">
+<meta property="og:url" content="http://yoursite.com/2017/08/02/Swift-范型（简单了解）/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，最近正在自学 Swift，偶尔文艺的资深伪文青。">
+<meta property="og:description" content="概念：就像 swift 数组字典一样 能储存的元素或键值对的类型都是不确定的，有可能是 int float string… ###泛型函数: 123456789101112//交换两个数的值func swapInt( a: inout Int, b: inout Int) &amp;#123;let temp = aa = bb = temp&amp;#125;var a = 100var b = 200//函数">
+<meta property="og:updated_time" content="2017-08-02T06:24:57.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Rui’s 个人小屋">
-<meta name="twitter:description" content="没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，最近正在自学 Swift，偶尔文艺的资深伪文青。">
+<meta name="twitter:title" content="Swift - 范型（简单了解）">
+<meta name="twitter:description" content="概念：就像 swift 数组字典一样 能储存的元素或键值对的类型都是不确定的，有可能是 int float string… ###泛型函数: 123456789101112//交换两个数的值func swapInt( a: inout Int, b: inout Int) &amp;#123;let temp = aa = bb = temp&amp;#125;var a = 100var b = 200//函数">
 
 
 
@@ -129,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/page/4/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/02/Swift-范型（简单了解）/"/>
 
 
 
 
 
-  <title>Archiv | Rui’s 个人小屋</title>
+  <title>Swift - 范型（简单了解） | Rui’s 个人小屋</title>
   
 
 
@@ -160,7 +162,7 @@
     
   
 
-  <div class="container sidebar-position-left  page-archive  ">
+  <div class="container sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -244,218 +246,156 @@
           <div id="content" class="content">
             
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  <div id="posts" class="posts-expand">
+    
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      Öhm..! Insgesamt 21 Artikel. Bleib dran.
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/02/Swift-范型（简单了解）/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rui’s 个人小屋">
     </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">Swift - 范型（简单了解）</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-02T14:09:03+08:00">
+                2017-08-02
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
 
       
       
-      
 
+      
+        <p><strong>概念：</strong><br>就像 swift 数组字典一样 能储存的元素或键值对的类型都是不确定的，有可能是 int float string…</p>
+<p>###泛型函数:</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//交换两个数的值</div><div class="line">func swapInt( a: inout Int, b: inout Int) &#123;</div><div class="line">let temp = a</div><div class="line">a = b</div><div class="line">b = temp</div><div class="line">&#125;</div><div class="line">var a = 100</div><div class="line">var b = 200</div><div class="line">//函数调用</div><div class="line">swapInt(a: &amp;a, b: &amp;b)</div><div class="line">print(&quot;a = \(a), b = \(b)&quot;)</div><div class="line">//a = 200, b = 100</div></pre></td></tr></table></figure>
+<p>如果此时需求改了 要交换两个 String 的值 或者两个 float 的值<br>这时候 Swift 中泛型的就有展示的地方了</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">func swapGeneric &lt;T&gt;( a: inout T, b: inout T) &#123;</div><div class="line">let temp = a</div><div class="line">a = b</div><div class="line">b = temp</div><div class="line">&#125;</div><div class="line">var str = &quot;Hello, Swift&quot;</div><div class="line">var str1 = &quot;Hello, World&quot;</div><div class="line">//函数调用</div><div class="line">swapGeneric(a: &amp;str, b: &amp;str1)</div><div class="line">print(&quot;str = \(str), str1 = \(str1)&quot;)</div><div class="line">//str = Hello, World, str1 = Hello, Swift</div></pre></td></tr></table></figure>
+<p>###对比一下这两个函数：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">//func swapInt( a: inout Int, b: inout Int)</div><div class="line"></div><div class="line">//func swapGeneric &lt;T&gt;( a: inout T, b: inout T)</div><div class="line"></div><div class="line">//泛型函数使用了节点类型命名</div><div class="line"></div><div class="line">//通常我们用字母 T 来代替实际类型名(如Int，String，Float等)</div><div class="line"></div><div class="line">//节点类型名并不是表示 T 必须是任何类型，而是表示规定 a 和 b 必须是同一个类型的 T，只有函数在每一次调用的时候传入的实际类型才能决定T所代表的类型</div></pre></td></tr></table></figure>
+<p>###泛型约束：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//泛型 T 要遵守 Comparable 协议，也就是我们要给这个泛型 T 添加约束，只有符合这个约束的类型才能使用这个函数</div><div class="line"></div><div class="line">//例如：判断两个参数是否相等的泛型函数</div><div class="line"></div><div class="line">func isEquals&lt;T: Comparable&gt;(a: T, b: T) -&gt; Bool &#123;</div><div class="line">return (a == b)</div><div class="line">&#125;</div><div class="line"></div><div class="line">let equal11 = isEquals(a: 68, b: 68)</div><div class="line">let equal22 = isEquals(a: &quot;hello&quot;, b: &quot;he11o&quot;)</div><div class="line">print(  (equal11) )</div><div class="line">print(  (equal22) )</div><div class="line">//true</div><div class="line">//false</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
       
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2017">2017</h2>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/swift范型/" rel="tag"># swift范型</a>
+          
         </div>
       
+
+      
+      
       
 
       
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/07/31/Swift-枚举-结构体-类/" rel="next" title="Swift - 枚举&结构体*类">
+                <i class="fa fa-chevron-left"></i> Swift - 枚举&结构体*类
+              </a>
+            
+          </div>
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+          <span class="post-nav-divider"></span>
 
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/29/为一个实例动态替换方法-demo/" itemprop="url">
-              
-                <span itemprop="name">为一个实例动态替换方法(demo)</span>
-              
-            </a>
-        
-      </h2>
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-29T14:07:06+08:00"
-              content="2017-06-29" >
-          06-29
-        </time>
-      </div>
-
-    </header>
+      
+      
+    </footer>
   </article>
 
 
 
-    
-
+    <div class="post-spread">
       
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/29/移动开发学习-移动开发前线/" itemprop="url">
-              
-                <span itemprop="name">移动开发资讯-移动开发前线</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-29T11:32:29+08:00"
-              content="2017-06-29" >
-          06-29
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/27/UIDynamic-物理仿真-Demo/" itemprop="url">
-              
-                <span itemprop="name">UIDynamic 物理仿真 (Demo 1)</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-27T10:00:06+08:00"
-              content="2017-06-27" >
-          06-27
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/26/UIDynamic-物理仿真研究/" itemprop="url">
-              
-                <span itemprop="name">UIDynamic 物理仿真（概念研究）</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-26T17:26:49+08:00"
-              content="2017-06-26" >
-          06-26
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h2 class="post-title">
-        
-            <a class="post-title-link" href="/2017/06/24/Hexo-创建个人空间博客/" itemprop="url">
-              
-                <span itemprop="name">Hexo 创建个人空间博客</span>
-              
-            </a>
-        
-      </h2>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-06-24T14:43:59+08:00"
-              content="2017-06-24" >
-          06-24
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-  </section>
-
-  
-  <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/">1</a><span class="space">&hellip;</span><a class="page-number" href="/archives/page/3/">3</a><span class="page-number current">4</span><a class="page-number" href="/archives/page/5/">5</a><a class="extend next" rel="next" href="/archives/page/5/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
-
+    </div>
+  </div>
 
 
           </div>
@@ -463,6 +403,10 @@
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -689,11 +633,9 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
 
 
   
