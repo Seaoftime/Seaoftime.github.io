@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="UIDynamic," />
+  <meta name="keywords" content="oc-load," />
 
 
 
@@ -93,19 +93,20 @@
 
 
 
-<meta name="description" content="主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonatomic, strong) UIGr">
-<meta name="keywords" content="UIDynamic">
+<meta name="description" content="load 方法的执行顺序: 先建一个 Single View Application，展开 Build Phases 的 Compile Sources，如下图： 12345在 @implementation 里面+ (void)load &amp;#123;NSLog(@&amp;quot;%s&amp;quot;, __func__);&amp;#125; ###打印结果： 123456789/*2017-08-03 10:">
+<meta name="keywords" content="oc-load">
 <meta property="og:type" content="article">
-<meta property="og:title" content="模仿摩拜单车-我的贴纸">
-<meta property="og:url" content="http://yoursite.com/2017/07/06/模仿摩拜单车-我的贴纸/index.html">
+<meta property="og:title" content="OC - load 和 initialize 方法的执行顺序研究">
+<meta property="og:url" content="http://yoursite.com/2017/08/03/OC-load-和-initialize-方法的执行顺序研究/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonatomic, strong) UIGr">
-<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/1389572-cb41c14c7d2444a1.jpg">
-<meta property="og:updated_time" content="2017-07-06T06:49:54.000Z">
+<meta property="og:description" content="load 方法的执行顺序: 先建一个 Single View Application，展开 Build Phases 的 Compile Sources，如下图： 12345在 @implementation 里面+ (void)load &amp;#123;NSLog(@&amp;quot;%s&amp;quot;, __func__);&amp;#125; ###打印结果： 123456789/*2017-08-03 10:">
+<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8A%E5%8D%8810.41.04.png">
+<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8A%E5%8D%8811.05.04.png">
+<meta property="og:updated_time" content="2017-08-03T03:43:54.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="模仿摩拜单车-我的贴纸">
-<meta name="twitter:description" content="主要代码如下： 1234567891011121314//运动管理者@property (nonatomic, strong) CMMotionManager *manager;//物理行为（动态媒介）@property (nonatomic, strong) UIDynamicAnimator *animator;//重力行为@property (nonatomic, strong) UIGr">
-<meta name="twitter:image" content="http://oq33ifg3c.bkt.clouddn.com/1389572-cb41c14c7d2444a1.jpg">
+<meta name="twitter:title" content="OC - load 和 initialize 方法的执行顺序研究">
+<meta name="twitter:description" content="load 方法的执行顺序: 先建一个 Single View Application，展开 Build Phases 的 Compile Sources，如下图： 12345在 @implementation 里面+ (void)load &amp;#123;NSLog(@&amp;quot;%s&amp;quot;, __func__);&amp;#125; ###打印结果： 123456789/*2017-08-03 10:">
+<meta name="twitter:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8A%E5%8D%8810.41.04.png">
 
 
 
@@ -133,13 +134,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/07/06/模仿摩拜单车-我的贴纸/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/03/OC-load-和-initialize-方法的执行顺序研究/"/>
 
 
 
 
 
-  <title>模仿摩拜单车-我的贴纸 | Rui’s 个人小屋</title>
+  <title>OC - load 和 initialize 方法的执行顺序研究 | Rui’s 个人小屋</title>
   
 
 
@@ -258,7 +259,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/06/模仿摩拜单车-我的贴纸/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/03/OC-load-和-initialize-方法的执行顺序研究/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rui">
@@ -275,7 +276,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">模仿摩拜单车-我的贴纸</h1>
+          <h1 class="post-title" itemprop="name headline">OC - load 和 initialize 方法的执行顺序研究</h1>
         
 
         <div class="post-meta">
@@ -287,8 +288,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-06T14:31:09+08:00">
-                2017-07-06
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-03T11:24:25+08:00">
+                2017-08-03
               </time>
             
 
@@ -297,28 +298,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/UIKit/" itemprop="url" rel="index">
-                    <span itemprop="name">UIKit</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -344,48 +323,19 @@
       
 
       
-        <p><img src="http://oq33ifg3c.bkt.clouddn.com/1389572-cb41c14c7d2444a1.jpg" alt="摩拜单车 app 效果"></p>
-<p><strong>主要代码如下：</strong></p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">//运动管理者</div><div class="line">@property (nonatomic, strong) CMMotionManager *manager;</div><div class="line"></div><div class="line">//物理行为（动态媒介）</div><div class="line">@property (nonatomic, strong) UIDynamicAnimator *animator;</div><div class="line"></div><div class="line">//重力行为</div><div class="line">@property (nonatomic, strong) UIGravityBehavior *gravity;</div><div class="line"></div><div class="line">//碰撞行为</div><div class="line">@property (nonatomic, strong) UICollisionBehavior *collision;</div><div class="line"></div><div class="line">//动力学属性</div><div class="line">@property (nonatomic, strong) UIDynamicItemBehavior *dynamic;</div></pre></td></tr></table></figure>
-<pre><code>- (UICollisionBehavior *)collision{
-
-if (!_collision) {
-
-_collision = [[UICollisionBehavior alloc] init];
-_collision.translatesReferenceBoundsIntoBoundary = YES;
-/*
-collisionMode: 碰撞模式
-《1》UICollisionBehaviorModeItems 元素碰撞
-《2》UICollisionBehaviorModeBoundaries 边境碰撞
-《3》UICollisionBehaviorModeEverything 所有都可以碰撞
-*/
-_collision.collisionMode = UICollisionBehaviorModeEverything;
-[self.animator addBehavior:_collision];
-}
-return _collision;
-}
-</code></pre><pre><code>- (UIDynamicItemBehavior *)dynamic{
-
-if (!_dynamic) {
-
-_dynamic = [[UIDynamicItemBehavior alloc] init];
-
-_dynamic.friction = 0.2f;//摩擦力系数
-
-_dynamic.elasticity = 0.8f;//弹性系数 在0~1之间
-
-_dynamic.density = 0.2f;//跟size大小相关，计算物体块的质量。
-
-_dynamic.allowsRotation = YES;//是否能旋转
-
-_dynamic.resistance = 0;// 阻力系数
-
-[self.animator addBehavior:_dynamic];
-}
-return _dynamic;
-}
-</code></pre><p><strong>原文出处：</strong></p>
-<p><a href="https://github.com/HouHangLei/MotionView" target="_blank" rel="external">https://github.com/HouHangLei/MotionView</a></p>
+        <p><strong>load 方法的执行顺序:</strong></p>
+<p>先建一个 Single View Application，展开 Build Phases 的 Compile Sources，如下图：<br><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8A%E5%8D%8810.41.04.png" alt="compile sources"></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">在 @implementation 里面</div><div class="line"></div><div class="line">+ (void)load &#123;</div><div class="line">NSLog(@&quot;%s&quot;, __func__);</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###打印结果：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/*</div><div class="line">2017-08-03 10:27:54.114 ZRTestLoad[19008:9996195] +[ViewController load]</div><div class="line">2017-08-03 10:27:54.120 ZRTestLoad[19008:9996195] +[AppDelegate load]</div><div class="line">2017-08-03 10:27:54.120 ZRTestLoad[19008:9996195] main</div><div class="line"></div><div class="line"></div><div class="line">和 compile sources 顺序一致</div><div class="line">*/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">//添加 ZRClassFather ZRClassSon ZRClassAA</div><div class="line"></div><div class="line">//下面是运行后的结果</div><div class="line"></div><div class="line">/*</div><div class="line">2017-08-03 10:56:28.997 ZRTestLoad[19469:10011822] +[ZRClassFather load]</div><div class="line">2017-08-03 10:56:29.000 ZRTestLoad[19469:10011822] +[ZRClassSon load]</div><div class="line">2017-08-03 10:56:29.001 ZRTestLoad[19469:10011822] +[ViewController load]</div><div class="line">2017-08-03 10:56:29.001 ZRTestLoad[19469:10011822] +[AppDelegate load]</div><div class="line">2017-08-03 10:56:29.001 ZRTestLoad[19469:10011822] +[ZRClassAA load]</div><div class="line">2017-08-03 10:56:29.002 ZRTestLoad[19469:10011822] main</div><div class="line"></div><div class="line">*/</div></pre></td></tr></table></figure>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line">//将 ZRClassSon 里的 load 方法注释掉</div><div class="line"></div><div class="line">/*</div><div class="line">2017-08-03 10:59:23.863 ZRTestLoad[19533:10014206] +[ViewController load]</div><div class="line">2017-08-03 10:59:23.865 ZRTestLoad[19533:10014206] +[AppDelegate load]</div><div class="line">2017-08-03 10:59:23.866 ZRTestLoad[19533:10014206] +[ZRClassAA load]</div><div class="line">2017-08-03 10:59:23.866 ZRTestLoad[19533:10014206] main</div><div class="line">2017-08-03 10:59:23.866 ZRTestLoad[19533:10014206] +[ZRClassFather load]</div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line">//***也就是说，只有在你重写了 load 方法的时候，会在执行子类的 load 方法之前，先执行父类的 load 方法</div></pre></td></tr></table></figure>
+<p>再添加一个分类的情况 （将它们移到最上面 看看）</p>
+<p><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-08-03%20%E4%B8%8A%E5%8D%8811.05.04.png" alt="complile source"><br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">/*</div><div class="line">2017-08-03 11:07:25.372 ZRTestLoad[19621:10018473] +[ViewController load]</div><div class="line">2017-08-03 11:07:25.376 ZRTestLoad[19621:10018473] +[AppDelegate load]</div><div class="line">2017-08-03 11:07:25.376 ZRTestLoad[19621:10018473] +[ZRClassAA load]</div><div class="line">2017-08-03 11:07:25.376 ZRTestLoad[19621:10018473] +[ZRClassFather load]</div><div class="line">2017-08-03 11:07:25.377 ZRTestLoad[19621:10018473] main</div><div class="line">2017-08-03 11:07:25.377 ZRTestLoad[19621:10018473] +[ZRClassSon(categoryy) load]</div><div class="line">2017-08-03 11:07:25.377 ZRTestLoad[19621:10018473] +[ZRClassFather(categoryy) load]</div><div class="line"></div><div class="line"></div><div class="line">*/</div><div class="line"></div><div class="line"></div><div class="line">//***明明应该最早执行 load 方法的分类，却最后执行，所以分类低人一等，最晚执行 load 方法</div></pre></td></tr></table></figure></p>
+<p><strong>最后结论：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">/*</div><div class="line">得出结论，load 的执行顺序:</div><div class="line"></div><div class="line">执行子类的 load 方法之前，当父类未加载时，先执行父类的 load 方法（子类重写时，先执行父类）</div><div class="line">分类的 load 方法统一在最后执行</div><div class="line">优先满足以上两条，再按 Compile Sources 的顺序执行 load 方法。</div><div class="line">*/</div></pre></td></tr></table></figure>
+<p><strong>initialize 方法的执行顺序：</strong></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">//1. 先执行了 ClassFather(category) initialize，再执行了 ClassSon(category) initialize，而 ClassSon load 在后面执行, 也就是说 load 方法还未执行也不会影响到这个类的使用</div><div class="line"></div><div class="line">//2. 子类会继承父类的 initialize 。当执行完父类的 initialize 方法，准备执行子类的 initialize 方法时，会根据继承链找到父类的 initialize 执行</div><div class="line"></div><div class="line">//3. category 的覆写对 load 方法无效，但对 initialize 方法有效, 且按 Complile Sources 的顺序执行</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -415,7 +365,7 @@ return _dynamic;
       
         <div class="post-tags">
           
-            <a href="/tags/UIDynamic/" rel="tag"># UIDynamic</a>
+            <a href="/tags/oc-load/" rel="tag"># oc-load</a>
           
         </div>
       
@@ -428,8 +378,8 @@ return _dynamic;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/30/Runloop-原理篇/" rel="next" title="Runloop 原理篇">
-                <i class="fa fa-chevron-left"></i> Runloop 原理篇
+              <a href="/2017/08/02/Swift-算法（持续更新）/" rel="next" title="Swift - 算法（持续更新）">
+                <i class="fa fa-chevron-left"></i> Swift - 算法（持续更新）
               </a>
             
           </div>
@@ -437,10 +387,6 @@ return _dynamic;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/06/iOS-开发书籍推荐/" rel="prev" title="iOS 开发书籍推荐">
-                iOS 开发书籍推荐 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
