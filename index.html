@@ -256,6 +256,126 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/08/Swift-GCD-简单使用和封装/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rui’s 个人小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+                
+                <a class="post-title-link" href="/2017/08/08/Swift-GCD-简单使用和封装/" itemprop="url">Swift - GCD 简单使用和封装</a></h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-08T14:22:41+08:00">
+                2017-08-08
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+          ###GCD 是一种非常方便的使用多线程的方式。通过使用 GCD，我们可以在确保尽量简单的语法的前提下进行灵活的多线程编程
+下面我给出了一个日常里最通常会使用到的例子 , 来展示一下 Swift 里的 GCD 调用会是什么样子：
+123456789101112131415161718//创建目标队列let workingQueue = DispatchQueue.global()//派发到刚创建的队列中，GCD 会负责进行线程调度workingQueue.async() &#123;//在 workingQueue 中异步进行print(&quot;努力工作...&quot;)//模拟两秒的执
+          ...
+          <!--noindex-->
+          <div class="post-button text-center">
+            <a class="btn" href="/2017/08/08/Swift-GCD-简单使用和封装/#more" rel="contents">
+              Weiterlesen &raquo;
+            </a>
+          </div>
+          <!--/noindex-->
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/03/OC-load-和-initialize-方法的执行顺序研究/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -728,130 +848,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/07/28/Swift-函数/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="Rui">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="Rui’s 个人小屋">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-                
-                <a class="post-title-link" href="/2017/07/28/Swift-函数/" itemprop="url">Swift - 函数</a></h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">Veröffentlicht am</span>
-              
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-07-28T14:28:24+08:00">
-                2017-07-28
-              </time>
-            
-
-            
-
-            
-          </span>
-
-          
-
-          
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          
-          函数相当于 OC 中的方法
-//函数的格式如下：
-func 函数名(参数列表) -&gt; 返回值类型 {
-//代码块
-return 返回值}
-//func 是关键字//参数列表里面是   参数名：参数类型//使用箭头 -&gt; 指向返回值类型
-12345678910111213141516171819202122232425262728func prit() &#123;print(&quot;无参无返回值&quot;)&#125;func prit22()-&gt; String &#123;return &quot;无参有返回值&quot;&#125;func add(a : NSIn
-          ...
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/07/28/Swift-函数/#more" rel="contents">
-              Weiterlesen &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -901,7 +897,7 @@ return 返回值}
           
             <div class="site-state-item site-state-posts">
               <a href="/archives/">
-                <span class="site-state-item-count">23</span>
+                <span class="site-state-item-count">24</span>
                 <span class="site-state-item-name">Artikel</span>
               </a>
             </div>
@@ -923,7 +919,7 @@ return 返回值}
             
             <div class="site-state-item site-state-tags">
               
-                <span class="site-state-item-count">18</span>
+                <span class="site-state-item-count">19</span>
                 <span class="site-state-item-name">Tags</span>
               
             </div>

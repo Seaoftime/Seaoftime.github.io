@@ -77,7 +77,7 @@
 <link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="runloop," />
+  <meta name="keywords" content="swiftgcd," />
 
 
 
@@ -93,19 +93,17 @@
 
 
 
-<meta name="description" content="runloop 概念： 事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说r">
-<meta name="keywords" content="runloop">
+<meta name="description" content="###GCD 是一种非常方便的使用多线程的方式。通过使用 GCD，我们可以在确保尽量简单的语法的前提下进行灵活的多线程编程 下面我给出了一个日常里最通常会使用到的例子 , 来展示一下 Swift 里的 GCD 调用会是什么样子： 123456789101112131415161718//创建目标队列let workingQueue = DispatchQueue.global()//派发到刚创建的">
+<meta name="keywords" content="swiftgcd">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Runloop 原理篇">
-<meta property="og:url" content="http://yoursite.com/2017/06/30/Runloop-原理篇/index.html">
+<meta property="og:title" content="Swift - GCD 简单使用和封装">
+<meta property="og:url" content="http://yoursite.com/2017/08/08/Swift-GCD-简单使用和封装/index.html">
 <meta property="og:site_name" content="Rui’s 个人小屋">
-<meta property="og:description" content="runloop 概念： 事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说r">
-<meta property="og:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-30%20%E4%B8%8B%E5%8D%884.12.04.png">
-<meta property="og:updated_time" content="2017-06-30T08:17:39.000Z">
+<meta property="og:description" content="###GCD 是一种非常方便的使用多线程的方式。通过使用 GCD，我们可以在确保尽量简单的语法的前提下进行灵活的多线程编程 下面我给出了一个日常里最通常会使用到的例子 , 来展示一下 Swift 里的 GCD 调用会是什么样子： 123456789101112131415161718//创建目标队列let workingQueue = DispatchQueue.global()//派发到刚创建的">
+<meta property="og:updated_time" content="2017-08-08T06:57:45.000Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Runloop 原理篇">
-<meta name="twitter:description" content="runloop 概念： 事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说r">
-<meta name="twitter:image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-30%20%E4%B8%8B%E5%8D%884.12.04.png">
+<meta name="twitter:title" content="Swift - GCD 简单使用和封装">
+<meta name="twitter:description" content="###GCD 是一种非常方便的使用多线程的方式。通过使用 GCD，我们可以在确保尽量简单的语法的前提下进行灵活的多线程编程 下面我给出了一个日常里最通常会使用到的例子 , 来展示一下 Swift 里的 GCD 调用会是什么样子： 123456789101112131415161718//创建目标队列let workingQueue = DispatchQueue.global()//派发到刚创建的">
 
 
 
@@ -133,13 +131,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2017/06/30/Runloop-原理篇/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/08/08/Swift-GCD-简单使用和封装/"/>
 
 
 
 
 
-  <title>Runloop 原理篇 | Rui’s 个人小屋</title>
+  <title>Swift - GCD 简单使用和封装 | Rui’s 个人小屋</title>
   
 
 
@@ -258,7 +256,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/06/30/Runloop-原理篇/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/08/Swift-GCD-简单使用和封装/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Rui">
@@ -275,7 +273,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Runloop 原理篇</h1>
+          <h1 class="post-title" itemprop="name headline">Swift - GCD 简单使用和封装</h1>
         
 
         <div class="post-meta">
@@ -287,8 +285,8 @@
               
                 <span class="post-meta-item-text">Veröffentlicht am</span>
               
-              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-06-30T15:58:09+08:00">
-                2017-06-30
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-08T14:22:41+08:00">
+                2017-08-08
               </time>
             
 
@@ -297,28 +295,6 @@
             
           </span>
 
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">in</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/runloop/" itemprop="url" rel="index">
-                    <span itemprop="name">runloop</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
           
 
           
@@ -344,37 +320,15 @@
       
 
       
-        <p><strong>runloop 概念：</strong></p>
-<p>事件循环，我们知道，任何程序如果执行到程序的最后一句之后都会结束运行，然而对于我们要的手机应用程序而言，他显然不可以执行一个事件后就结束运行，他应该具有持续接受事件的能力从而不断地处理事件。所以最基本的思路就是用于个while循环让程序不能走到最后一句结束，而是在循环体内不断的接受事件。所以我们需要runLoop。其实，runLoop并不是iOS独有的概念，因为准确的来说runLoop应该是一个设计模式，在其他平台同样存在这种模式。<br><em>注：RunLoop实际上是一个对象，这个对象在循环中用来处理程序运行过程中出现的各种事件（比如说触摸事件、UI刷新事件、定时器事件、Selector事件），从而保持程序的持续运行；而且在没有事件处理的时候，会进入睡眠模式，从而节省CPU资源，提高程序性能。</em></p>
-<p><strong>runloop 实现：</strong><br>我们使用的是Foundation框架的NSRunLoop类去做一些实现，而其实NSRunLoop是基于CoreFoundation框架中的CFRunLoop进行的一层简单的封装。所以我们这里着重介绍CFRunLoop。</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line">struct __CFRunLoop &#123;</div><div class="line">CFRuntimeBase _base;</div><div class="line">pthread_mutex_t _lock; /* locked for accessing mode list */</div><div class="line">__CFPort _wakeUpPort;  // used for CFRunLoopWakeUp </div><div class="line">Boolean _unused;</div><div class="line">volatile _per_run_data *_perRunData;   // reset for runs of the run loop</div><div class="line">pthread_t _pthread;</div><div class="line">uint32_t _winthread;</div><div class="line">CFMutableSetRef _commonModes;</div><div class="line">CFMutableSetRef _commonModeItems;</div><div class="line">CFRunLoopModeRef _currentMode;</div><div class="line">CFMutableSetRef _modes;</div><div class="line">struct _block_item *_blocks_head;</div><div class="line">struct _block_item *_blocks_tail;</div><div class="line">CFTypeRef _counterpart;</div><div class="line">&#125;;</div></pre></td></tr></table></figure>
-<p>我们大概可以CFRunLoop是这么一个结构体。<br>我们可以看到结构体重有用来保证线程安全的锁_lock，有用来唤醒runLoop的端口_wakeUpPort，有线程对象_pthread，还有一个模式集合_modes以及一些其他辅助的属性。</p>
-<p><strong>runloop和线程：</strong></p>
-<ol>
-<li>一条线程对应一个RunLoop对象，每条线程都有唯一一个与之对应的RunLoop对象。</li>
-<li>我们只能在当前线程中操作当前线程的RunLoop，而不能去操作其他线程的RunLoop。</li>
-<li>RunLoop对象在第一次获取RunLoop时创建，销毁则是在线程结束的时候。</li>
-<li>主线程的RunLoop对象系统自动帮助我们创建好了，而子线程的RunLoop对象需要我们主动创建。</li>
-</ol>
-<p><strong>默认情况下主线程的RunLoop原理:</strong></p>
-<p>我们在启动一个iOS程序的时候，系统会调用创建项目时自动生成的main.m的文件。</p>
-<pre><code>int main(int argc, char * argv[]) {
-@autoreleasepool {
-return UIApplicationMain(argc, argv, nil, NSStringFromClass([AppDelegate class]));
-}
-}
-</code></pre><p>其中UIApplicationMain函数内部帮我们开启了主线程的RunLoop，UIApplicationMain内部拥有一个无线循环的代码。上边的代码中开启RunLoop的过程可以简单的理解为如下代码：</p>
-<pre><code>int main(int argc, char * argv[]) {        
-BOOL running = YES;
-do {
-// 执行各种任务，处理各种事件
-// ......
-} while (running);
-
-return 0;
-}!
-</code></pre><p><img src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-30%20%E4%B8%8B%E5%8D%884.12.04.png" alt=""></p>
-<p>从上图中可以看出，RunLoop就是线程中的一个循环，RunLoop在循环中会不断检测，通过Input sources（输入源）和Timer sources（定时源）两种来源等待接受事件；然后对接受到的事件通知线程进行处理，并在没有事件的时候进行休息。</p>
+        <p>###GCD 是一种非常方便的使用多线程的方式。通过使用 GCD，我们可以在确保尽量简单的语法的前提下进行灵活的多线程编程</p>
+<p>下面我给出了一个日常里最通常会使用到的例子 , 来展示一下 Swift 里的 GCD 调用会是什么样子：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">//创建目标队列</div><div class="line">let workingQueue = DispatchQueue.global()</div><div class="line"></div><div class="line">//派发到刚创建的队列中，GCD 会负责进行线程调度</div><div class="line">workingQueue.async() &#123;</div><div class="line">//在 workingQueue 中异步进行</div><div class="line">print(&quot;努力工作...&quot;)</div><div class="line">//模拟两秒的执行时间</div><div class="line">Thread.sleep(forTimeInterval: 3)</div><div class="line"></div><div class="line">DispatchQueue.main.async() &#123;</div><div class="line">//返回到主线程更新 UI</div><div class="line">print(&quot;结束工作，更新 UI&quot;)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">//牢记 UI 相关的工作都需要在主线程执行，否则可能发生不可预知的错误</div></pre></td></tr></table></figure>
+<p>###最简单的延时 使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + DispatchTimeInterval.seconds(2), execute: &#123;</div><div class="line"></div><div class="line">print(&quot;2 秒后输出...&quot;)</div><div class="line"></div><div class="line">&#125;)</div></pre></td></tr></table></figure>
+<p>###下面是任务延时和任务取消的简单封装：<br>（来源：objc - 中国）</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div></pre></td><td class="code"><pre><div class="line">typealias Task = (_ cancel: Bool) -&gt; Void</div><div class="line"></div><div class="line">func delay(_ time: TimeInterval, task: @escaping () -&gt; ()) -&gt; Task? &#123;</div><div class="line"></div><div class="line">func dispatch_later(block: @escaping () -&gt; ()) &#123;</div><div class="line">let t = DispatchTime.now() + time</div><div class="line">DispatchQueue.main.asyncAfter(deadline: t, execute: block)</div><div class="line">&#125;</div><div class="line"></div><div class="line">var closure: (() -&gt; Void)? = task</div><div class="line">var result: Task?</div><div class="line"></div><div class="line">let delayedClosure: Task = &#123; cancel in</div><div class="line"></div><div class="line">if let internalClosure = closure &#123;</div><div class="line">if (cancel == false) &#123;</div><div class="line">DispatchQueue.main.async(execute: internalClosure)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">closure = nil</div><div class="line">result = nil</div><div class="line">&#125;</div><div class="line"></div><div class="line">result = delayedClosure</div><div class="line">dispatch_later &#123;</div><div class="line">if let delayedClosure = result &#123;</div><div class="line">delayedClosure(false)</div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line">return result</div><div class="line">&#125;</div><div class="line"></div><div class="line">func cancel(_ task: Task?) &#123;</div><div class="line">task?(true)</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###使用方法：</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">let task = delay(2) &#123; </div><div class="line">print(&quot;2秒后输出。。。&quot;) </div><div class="line">&#125;</div><div class="line"></div><div class="line">//取消一个任务</div><div class="line">cancel(task)</div></pre></td></tr></table></figure>
 
       
     </div>
@@ -404,7 +358,7 @@ return 0;
       
         <div class="post-tags">
           
-            <a href="/tags/runloop/" rel="tag"># runloop</a>
+            <a href="/tags/swiftgcd/" rel="tag"># swiftgcd</a>
           
         </div>
       
@@ -417,8 +371,8 @@ return 0;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/06/29/多线程锁之对象锁-NSLock-条件锁-NSCondition/" rel="next" title="多线程锁之对象锁(NSLock) 条件锁(NSCondition)">
-                <i class="fa fa-chevron-left"></i> 多线程锁之对象锁(NSLock) 条件锁(NSCondition)
+              <a href="/2017/08/03/OC-load-和-initialize-方法的执行顺序研究/" rel="next" title="OC - load 和 initialize 方法的执行顺序研究">
+                <i class="fa fa-chevron-left"></i> OC - load 和 initialize 方法的执行顺序研究
               </a>
             
           </div>
@@ -426,10 +380,6 @@ return 0;
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/06/模仿摩拜单车-我的贴纸/" rel="prev" title="模仿摩拜单车-我的贴纸">
-                模仿摩拜单车-我的贴纸 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
