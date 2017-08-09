@@ -1,0 +1,698 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-CN">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+
+
+
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="oc动画," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.1" />
+
+
+
+
+
+
+<meta name="description" content="###设置 label 的 AttributedString 123456789101112131415161718192021222324252627282930- (void)setDaDaLbAttributedStr &amp;#123;NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWi">
+<meta name="keywords" content="oc动画">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OC - 仿达达启动页动画(UIView &amp;  CABasicAnimation)">
+<meta property="og:url" content="http://yoursite.com/2017/08/09/OC-仿达达启动页动画-UIView-CABasicAnimation/index.html">
+<meta property="og:site_name" content="Rui’s 个人小屋">
+<meta property="og:description" content="###设置 label 的 AttributedString 123456789101112131415161718192021222324252627282930- (void)setDaDaLbAttributedStr &amp;#123;NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWi">
+<meta property="og:updated_time" content="2017-08-09T03:52:01.000Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="OC - 仿达达启动页动画(UIView &amp;  CABasicAnimation)">
+<meta name="twitter:description" content="###设置 label 的 AttributedString 123456789101112131415161718192021222324252627282930- (void)setDaDaLbAttributedStr &amp;#123;NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWi">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post","offset":12,"offset_float":0,"b2t":false,"scrollpercent":false},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: 'Author'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/08/09/OC-仿达达启动页动画-UIView-CABasicAnimation/"/>
+
+
+
+
+
+  <title>OC - 仿达达启动页动画(UIView &  CABasicAnimation) | Rui’s 个人小屋</title>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-CN">
+
+  
+  
+    
+  
+
+  <div class="container sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">Rui’s 个人小屋</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">知识栖息地</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            Startseite
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            Archiv
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            Tags
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2017/08/09/OC-仿达达启动页动画-UIView-CABasicAnimation/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="Rui">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="Rui’s 个人小屋">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">OC - 仿达达启动页动画(UIView &  CABasicAnimation)</h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">Veröffentlicht am</span>
+              
+              <time title="Post created" itemprop="dateCreated datePublished" datetime="2017-08-09T11:35:27+08:00">
+                2017-08-09
+              </time>
+            
+
+            
+
+            
+          </span>
+
+          
+
+          
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###设置 label 的 AttributedString</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">- (void)setDaDaLbAttributedStr &#123;</div><div class="line"></div><div class="line">NSMutableAttributedString *attrString = [[NSMutableAttributedString alloc] initWithString:@&quot;达达\n可靠配送，在你身边&quot;];</div><div class="line"></div><div class="line">//字体大小</div><div class="line">[attrString addAttribute:NSFontAttributeName</div><div class="line">value:[UIFont systemFontOfSize:30.0f]</div><div class="line">range:NSMakeRange(0, 2)];</div><div class="line">//字体颜色</div><div class="line">[attrString addAttribute:NSForegroundColorAttributeName</div><div class="line">value:[UIColor blueColor]</div><div class="line">range:NSMakeRange(0, 2)];</div><div class="line"></div><div class="line"></div><div class="line">NSMutableParagraphStyle *paragraphStyle = [[NSMutableParagraphStyle alloc] init];</div><div class="line">//行间距</div><div class="line">paragraphStyle.lineSpacing = 15.f;</div><div class="line"></div><div class="line">[attrString addAttribute:NSParagraphStyleAttributeName</div><div class="line">value:paragraphStyle</div><div class="line">range:NSMakeRange(0, attrString.length)];</div><div class="line"></div><div class="line">//对齐方式</div><div class="line">paragraphStyle.alignment = NSTextAlignmentCenter;</div><div class="line"></div><div class="line"></div><div class="line">self.dadaLb.attributedText = attrString;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###设置 label 动画<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div></pre></td><td class="code"><pre><div class="line">// 在 viewDidLoad 中</div><div class="line"></div><div class="line">- (void)addLayerAnimation &#123;</div><div class="line"></div><div class="line">self.dadaLb.alpha = 0.f;</div><div class="line">self.dadaLb.layer.transform = CATransform3DMakeScale(0.5f, 0.5f, 1.f);</div><div class="line"></div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">// 在 viewDidAppear 中</div><div class="line"></div><div class="line">//label 动画 使用 UIView 动画</div><div class="line">- (void)animationDDLb &#123;</div><div class="line"></div><div class="line">[UIView animateWithDuration:0.5f animations:^&#123;</div><div class="line">//放大并模糊</div><div class="line">self.dadaLb.alpha = 0.5f;</div><div class="line">self.dadaLb.layer.transform = CATransform3DMakeScale(1.2f, 1.2f, 1.f);</div><div class="line"></div><div class="line"></div><div class="line">&#125; completion:^(BOOL finished) &#123;</div><div class="line">//恢复并清晰</div><div class="line">[UIView animateWithDuration:0.5f animations:^&#123;</div><div class="line">//</div><div class="line">self.dadaLb.alpha = 1.f;</div><div class="line">self.dadaLb.layer.transform = CATransform3DMakeScale(1.f, 1.f, 1.f);</div><div class="line"></div><div class="line">&#125;];</div><div class="line"></div><div class="line">&#125;];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>###设置 imageview 动画</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">// 在 viewDidAppear 中</div><div class="line"></div><div class="line">//logo 动画 使用 CABasicAniamtion 对象</div><div class="line">- (void)animationDDLogo &#123;</div><div class="line"></div><div class="line">CATransform3D transfrom3d = CATransform3DIdentity;</div><div class="line">transfrom3d.m34 = - 1 / 100.f;//设置视点在 z 轴正方向 z = 100</div><div class="line"></div><div class="line">CATransform3D startTransform = CATransform3DTranslate(transfrom3d, 0, 0, - 60);//动画开始时在 z 轴负方向 60</div><div class="line"></div><div class="line">CATransform3D finishTransform = CATransform3DRotate(startTransform, M_PI_2, 0, 1, 0);//动画结束时 绕 y 轴逆时针旋转 90 度</div><div class="line"></div><div class="line">CABasicAnimation *animation1 = [CABasicAnimation animationWithKeyPath:@&quot;transform&quot;];//通过 CABasicAnimation 修改 transform 属性</div><div class="line">//向后移动的同时绕 y 轴逆时针旋转 90 度</div><div class="line">animation1.fromValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];</div><div class="line">animation1.toValue = [NSValue valueWithCATransform3D:finishTransform];</div><div class="line"></div><div class="line"></div><div class="line">//**虽然只有1个动画 但用 group 以后好扩展</div><div class="line">CAAnimationGroup *aniamtiongroup = [CAAnimationGroup animation];</div><div class="line">aniamtiongroup.animations = [NSArray arrayWithObjects:animation1, nil];</div><div class="line">aniamtiongroup.duration = 0.5f;</div><div class="line">aniamtiongroup.delegate = self;//回调 动画结束时 调用 animationDidStop</div><div class="line">aniamtiongroup.removedOnCompletion = NO;//动画结束时停止 不回复原样</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">[self.logoImgV.layer addAnimation:aniamtiongroup forKey:@&quot;DDAnimatin&quot;];</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<p>###代理回调</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div></pre></td><td class="code"><pre><div class="line">// delegate</div><div class="line">- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)flag &#123;</div><div class="line"></div><div class="line">if (flag) &#123;</div><div class="line">//</div><div class="line">if (anim == [self.logoImgV.layer animationForKey:@&quot;DDAnimatin&quot;]) &#123;</div><div class="line">//</div><div class="line">CATransform3D transfrom3d = CATransform3DIdentity;</div><div class="line">transfrom3d.m34 = - 1 / 100.f;//设置视点在 z 轴正方向 z = 100</div><div class="line"></div><div class="line">CATransform3D startTransform = CATransform3DTranslate(transfrom3d, 0, 0, - 60);//动画开始时在 z 轴负方向 60</div><div class="line"></div><div class="line">CATransform3D secondTransform = CATransform3DRotate(startTransform, - M_PI_2, 0, 1, 0);//动画结束时 绕 y 轴顺时针旋转 90 度</div><div class="line"></div><div class="line">CABasicAnimation *animation2 = [CABasicAnimation animationWithKeyPath:@&quot;transform&quot;];//通过 CABasicAnimation 修改 transform 属性</div><div class="line">//向前移动的同时绕 y 轴逆时针旋转 90 度</div><div class="line">animation2.fromValue = [NSValue valueWithCATransform3D:secondTransform];</div><div class="line">animation2.toValue = [NSValue valueWithCATransform3D:CATransform3DIdentity];</div><div class="line">animation2.duration = 0.5f;</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">[self.logoImgV.layer addAnimation:animation2 forKey:@&quot;secondAnimation&quot;];</div><div class="line"></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line"></div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/oc动画/" rel="tag"># oc动画</a>
+          
+        </div>
+      
+
+      
+      
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/08/08/Swift-GCD-简单使用和封装/" rel="next" title="Swift - GCD 简单使用和封装">
+                <i class="fa fa-chevron-left"></i> Swift - GCD 简单使用和封装
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+
+      <section class="site-overview sidebar-panel sidebar-panel-active">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://oq33ifg3c.bkt.clouddn.com/%E5%B1%8F%E5%B9%95%E5%BF%AB%E7%85%A7%202017-06-24%20%E4%B8%8B%E5%8D%884.38.38.png"
+               alt="Rui" />
+          <p class="site-author-name" itemprop="name">Rui</p>
+           
+              <p class="site-description motion-element" itemprop="description">没事写一些 iOS 开发的代码，喜欢一部叫《夏目友人帐》的动漫，最近正在自学 Swift，偶尔文艺的资深伪文青。</p>
+          
+        </div>
+        <nav class="site-state motion-element">
+
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives/">
+                <span class="site-state-item-count">25</span>
+                <span class="site-state-item-name">Artikel</span>
+              </a>
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-categories">
+              
+                <span class="site-state-item-count">6</span>
+                <span class="site-state-item-name">Kategorien</span>
+              
+            </div>
+          
+
+          
+            
+            
+            <div class="site-state-item site-state-tags">
+              
+                <span class="site-state-item-count">20</span>
+                <span class="site-state-item-name">Tags</span>
+              
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Seaoftime?tab=repositories" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://www.jianshu.com/u/49f6751de79a" target="_blank" title="简书">
+                  
+                    <i class="fa fa-fw fa-globe"></i>
+                  
+                  简书
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Rui</span>
+</div>
+
+
+<div class="powered-by">
+  Erstellt mit  <a class="theme-link" href="https://hexo.io">Hexo</a>
+</div>
+
+<div class="theme-info">
+  Theme -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+<script async src="https://dn-lbstatics.qbox.me/busuanzi/2.3/busuanzi.pure.mini.js"></script>
+<span id="busuanzi_container_site_uv">
+  本站访客数<span id="busuanzi_value_site_uv"></span>人次
+</span>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+      <div class="back-to-top">
+        <i class="fa fa-arrow-up"></i>
+        
+      </div>
+    
+
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.1"></script>
+
+
+
+  
+
+
+  
+
+
+
+
+	
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+
+
+
+
+
+  
+
+
+
+
+
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
